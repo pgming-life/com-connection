@@ -7,8 +7,8 @@ CClient::CClient() :
 	dwAdvise(0),
 	pCP(NULL)
 {
-	m_number1 = 0;
-	m_number2 = 0;
+	m_num1 = 0;
+	m_num2 = 0;
 }
 
 CClient::~CClient()
@@ -18,8 +18,8 @@ CClient::~CClient()
 
 HRESULT CClient::OnInit(UINT num1, UINT num2)
 {
-	m_number1 = num1;
-	m_number2 = num2;
+	m_num1 = num1;
+	m_num2 = num2;
 	
 	// COM初期化
 	HRESULT hr = CoInitialize(NULL);
@@ -33,8 +33,8 @@ HRESULT CClient::OnSendToServer()
 	HRESULT  hr;
 
     // COMオブジェクトインスタンス生成
-	CComPtr<IAdd> pAdd;
-	hr = pAdd.CoCreateInstance(CLSID_Add);
+	CComPtr<ISumUp> pAdd;
+	hr = pAdd.CoCreateInstance(CLSID_SumUp);
 	if (FAILED(hr)) return hr;
 
 	// インターフェースコンテナを使用
@@ -45,7 +45,7 @@ HRESULT CClient::OnSendToServer()
     if (FAILED(hr)) return hr;
 
     // 接続ポイントのインターフェースを取得
-    hr = pCPC->FindConnectionPoint(IID__IAddEvents, &pCP);
+    hr = pCPC->FindConnectionPoint(IID__ISumUpEvents, &pCP);
 	if (FAILED(hr)) return hr;
 
 	// コンテナ解放
@@ -67,7 +67,7 @@ HRESULT CClient::OnSendToServer()
 	hr = pCP->Advise(pSinkUnk, &dwAdvise); 
 	
 	// COMサーバーにパラメータを送信
-    pAdd->Add(m_number1, m_number2);
+    pAdd->SumUp(m_num1, m_num2);
 
 	// サーバーから切断
 	pCP->Unadvise(dwAdvise);

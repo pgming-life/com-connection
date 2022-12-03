@@ -1,22 +1,21 @@
-#include "ConnectionCOM.h"
-#import "ConnectionCOM.tlb" named_guids raw_interfaces_only 
+#include "CServer.h"
+#import "ComServer.tlb" named_guids raw_interfaces_only 
 
-class CSink : public _IAddEvents
+class CSink : public _ISumUpEvents
 {
-private:
-    DWORD m_dwRefCount;
 public:
 	CSink();
 	virtual ~CSink();
+
     STDMETHODIMP ExecutionOver(int ret)
     {
-        cout << "ExecutionOver: " << ret << endl;
+        cout << "Sum up result: " << ret << endl;
 	    return S_OK;
     };
 
 	HRESULT STDMETHODCALLTYPE QueryInterface(REFIID iid, void** ppvObject)
     {
-        if (iid == IID__IAddEvents)
+        if (iid == IID__ISumUpEvents)
         {
             m_dwRefCount++;
             *ppvObject = (void*)this;
@@ -51,4 +50,7 @@ public:
         
         return l;
     }
+
+private:
+    DWORD m_dwRefCount;
 };

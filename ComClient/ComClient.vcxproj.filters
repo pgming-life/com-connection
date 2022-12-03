@@ -37,12 +37,12 @@
     <ClInclude Include="CSink.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Interface\ConnectionCOM.h">
+    <ClInclude Include="Interface\CServer.h">
       <Filter>ソース ファイル\Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Interface\ConnectionCOM.tlb">
+    <None Include="Interface\ComServer.tlb">
       <Filter>ソース ファイル\Interface</Filter>
     </None>
   </ItemGroup>

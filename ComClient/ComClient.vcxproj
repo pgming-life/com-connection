@@ -31,12 +31,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CClient.h" />
-    <ClInclude Include="Interface\ConnectionCOM.h" />
     <ClInclude Include="CSink.h" />
+    <ClInclude Include="Interface\CServer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Interface\ConnectionCOM.tlb" />
+    <None Include="Interface\ComServer.tlb" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

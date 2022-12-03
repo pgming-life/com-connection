@@ -7,7 +7,7 @@ int main()
 
     CClient client;
 
-    client.OnInit(1, 2);
+    client.OnInit(2, 3);
     if (FAILED(client.OnSendToServer()))
     {
         cout << "Failure..." << endl;

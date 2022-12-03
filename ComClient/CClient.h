@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "ConnectionCOM.h"
+#include "CServer.h"
 
 class CClient
 {
@@ -16,7 +16,7 @@ protected:
 	IConnectionPoint* pCP;
 
 private:
-	// 渡すデータ
-	int m_number1;
-	int m_number2;
+	// サーバーへ渡すデータ
+	int m_num1;
+	int m_num2;
 };
