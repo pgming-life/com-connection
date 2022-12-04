@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "resource.h"
 #include <initguid.h>
+
 #include "CServer.h"
 #include "CServer_i.c"
 #include "SumUp.h"

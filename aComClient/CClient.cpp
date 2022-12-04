@@ -41,7 +41,7 @@ HRESULT CClient::OnSendToServer()
 	IConnectionPointContainer* pCPC;
     
 	// インターフェースが接続可能なオブジェクトをサポートしているかを確認
-    hr = pAdd->QueryInterface(IID_IConnectionPointContainer,(void **)&pCPC);
+    hr = pAdd->QueryInterface(IID_IConnectionPointContainer, (void**)&pCPC);
     if (FAILED(hr)) return hr;
 
     // 接続ポイントのインターフェースを取得
