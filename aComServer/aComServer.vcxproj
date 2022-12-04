@@ -101,7 +101,7 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.dll</TargetExt>
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>ComServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
@@ -109,7 +109,7 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.dll</TargetExt>
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>ComServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
@@ -117,7 +117,7 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.dll</TargetExt>
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>ComServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)bin\$(Platform)\$(Configuration)\</OutDir>
@@ -125,7 +125,7 @@
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>false</LinkIncremental>
     <TargetExt>.dll</TargetExt>
-    <TargetName>$(ProjectName)</TargetName>
+    <TargetName>ComServer</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
@@ -133,7 +133,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetName).tlb</TypeLibraryName>
+      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\ComServer.tlb</TypeLibraryName>
       <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName />
       <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
@@ -189,7 +189,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetName).tlb</TypeLibraryName>
+      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\ComServer.tlb</TypeLibraryName>
       <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName>
       </DllDataFileName>
@@ -248,7 +248,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetName).tlb</TypeLibraryName>
+      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\ComServer.tlb</TypeLibraryName>
       <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName />
       <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
@@ -307,7 +307,7 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetName).tlb</TypeLibraryName>
+      <TypeLibraryName>$(ProjectDir)bin\$(Platform)\$(Configuration)\ComServer.tlb</TypeLibraryName>
       <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName>
       </DllDataFileName>

@@ -74,10 +74,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)build\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>RpcServer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)build\$(Configuration)\$(ProjectName)\</IntDir>
+    <TargetName>RpcServer</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>RpcServer</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>RpcServer</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -200,12 +208,12 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\RpcIdl\RpcIdl_s.c" />
+    <ClCompile Include="..\bRpcIdl\RpcIdl_s.c" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RpcServer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\RpcIdl\RpcIdl.h" />
+    <ClInclude Include="..\bRpcIdl\RpcIdl.h" />
     <ClInclude Include="RpcServer.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>

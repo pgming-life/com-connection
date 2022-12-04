@@ -9,25 +9,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\RpcIdl\RpcIdl_c.c">
-      <Filter>インターフェース</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="RpcClient.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="..\bRpcIdl\RpcIdl_c.c">
+      <Filter>インターフェース</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\RpcIdl\RpcIdl.h">
-      <Filter>インターフェース</Filter>
-    </ClInclude>
     <ClInclude Include="RpcClient.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bRpcIdl\RpcIdl.h">
+      <Filter>インターフェース</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

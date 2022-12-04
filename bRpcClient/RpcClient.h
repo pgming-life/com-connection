@@ -1,7 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
-#include "../RpcIdl/RpcIdl.h"
+#include "../bRpcIdl/RpcIdl.h"
 
 // RPCÉÅÉÇÉä
 void* __RPC_USER midl_user_allocate(size_t size);
