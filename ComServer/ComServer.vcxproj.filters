@@ -31,14 +31,14 @@
     <ClInclude Include="resource.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CServer.h">
-      <Filter>生成されたファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CServerCP.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CServer.h">
+      <Filter>生成されたファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

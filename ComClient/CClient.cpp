@@ -13,7 +13,7 @@ CClient::CClient() :
 
 CClient::~CClient()
 {
-
+	CoUninitialize();
 }
 
 HRESULT CClient::OnInit(UINT num1, UINT num2)
@@ -49,7 +49,7 @@ HRESULT CClient::OnSendToServer()
 	if (FAILED(hr)) return hr;
 
 	// コンテナ解放
-	pCPC->Release();
+	SAFE_RELEASE(pCPC);
     
 	// ハンドラ
 	IUnknown* pSinkUnk;
@@ -67,13 +67,14 @@ HRESULT CClient::OnSendToServer()
 	hr = pCP->Advise(pSinkUnk, &dwAdvise); 
 	
 	// COMサーバーにパラメータを送信
+	cout << "Sending..." << endl;
     pAdd->SumUp(m_num1, m_num2);
 
 	// サーバーから切断
 	pCP->Unadvise(dwAdvise);
 
 	// 接続ポイント解放
-	pCP->Release();
+	SAFE_RELEASE(pCP);
 	
     return hr;
 }

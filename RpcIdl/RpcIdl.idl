@@ -1,0 +1,33 @@
+[
+    // インターフェースを他のインターフェースと区別する一意の識別子
+    uuid(00000003-EAF3-4A7A-A0F2-BCE4C30DA77E),
+
+    // インターフェースのバージョン
+    version(1.0)
+]
+interface RpcIdl
+{
+    // コンテキストハンドルを完全に使用するには、typedefを実行する必要がある
+    typedef [context_handle] void* CONTEXT_HANDLE;
+
+    // サーバー上でコンテキストをオープン
+    CONTEXT_HANDLE Open(
+        // 明示的なサーバーバインディングハンドル
+        [in] handle_t hBinding,
+        // サーバー上で出力される文字列
+        [in, string] const char* szString);
+
+    // サーバー上のコンテキスト文字列を出力
+    void Output(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in] CONTEXT_HANDLE hContext);
+
+    // サーバー上のコンテキストをクローズ
+    void Close(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in, out] CONTEXT_HANDLE* phContext);
+}

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{e75ebb83-159b-4352-81f5-4f2890035ab2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="インターフェース">
+      <UniqueIdentifier>{ccfff8ec-be34-4753-8aed-cca997c6e198}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RpcServer.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\RpcIdl\RpcIdl_s.c">
+      <Filter>インターフェース</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="RpcServer.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\RpcIdl\RpcIdl.h">
+      <Filter>インターフェース</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

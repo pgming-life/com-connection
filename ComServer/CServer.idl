@@ -20,7 +20,7 @@ import "ocidl.idl";
 [
 	uuid(40EAC38A-60AA-4F14-BC5D-C7C3C8DE89C5),
 	version(1.0),
-	helpstring("ConnectionCOM 1.0 Type Library")
+	helpstring("ComServer 1.0 Type Library")
 ]
 library CONNECTIONCOMLib
 {

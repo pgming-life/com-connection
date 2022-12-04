@@ -1,3 +1,5 @@
+//!!! No wide characters > Error !!!
+
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
 // Used by ConnectionCOM.rc
