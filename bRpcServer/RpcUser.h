@@ -3,7 +3,7 @@
 #include "stdafx.h"
 #include "../bRpcIdl/RpcIdl.h"
 
-// RPC制御
+// RPCコールバックイベント
 CONTEXT_HANDLE Open(
     /* [in] */ handle_t hBinding,
     /* [string][in] */ const char* szString);

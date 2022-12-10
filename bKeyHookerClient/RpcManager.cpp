@@ -61,12 +61,12 @@ HRESULT RpcManager::OnInit()
     return S_OK;
 }
 
-HRESULT RpcManager::OnSend()
+HRESULT RpcManager::OnSend(const LPCSTR key)
 {
     RpcTryExcept
     {
         // RPCコンテキストハンドルをオープン
-        CONTEXT_HANDLE hContext = Open(m_hBinding, "Hello World!");
+        CONTEXT_HANDLE hContext = Open(m_hBinding, key);
 
         // 送信先RPC関数をコールし送信
         // hBindingバイディングハンドルが明示的に使用される

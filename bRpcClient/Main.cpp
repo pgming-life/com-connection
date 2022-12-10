@@ -7,17 +7,20 @@ int main()
     rpc.reset(new RpcManager());
 
     // ‰Šú‰»
+    cout << "RPC start." << endl;
     rpc->OnInit();
 
-    cout << "Can I send \"Hello World!\" ? [Enter]";
+    cout << "Can I send \"Hello World!\"? [Enter]";
     cin.get();
 
     // ‘—M
     rpc->OnSend();
 
-    cout << "Process release... [Enter]" << endl;
-    cin.get();
-
     // ‰ğ•ú
+    cout << "RPC release? [Enter]";
+    cin.get();
     rpc->OnDestroy();
+
+    cout << "Process release..." << endl;
+    Sleep(1000);
 }
