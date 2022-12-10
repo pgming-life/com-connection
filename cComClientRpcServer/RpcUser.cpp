@@ -1,4 +1,5 @@
 #include "RpcUser.h"
+#include "CClient.h"
 
 /////////////////////////////////////////////////////
 // RPCコールバックイベント
@@ -24,6 +25,14 @@ void Output(
     clog << "Output : Context(" << hContext << ")" << endl;
     string* pContext = static_cast<string*>(hContext);
     cout << ">>> " << *pContext << endl;    // 出力
+
+    cout << "2 and 3 sending." << endl;
+    CClient client;
+    client.OnInit(2, 3);
+    if (FAILED(client.OnSendToServer()))
+    {
+        cout << "Failure..." << endl;
+    }
 }
 
 // RPCクローズ

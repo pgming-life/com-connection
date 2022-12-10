@@ -4,7 +4,7 @@
 int main()
 {
     unique_ptr<RpcManager> rpc;
-
+    
     // ‰Šú‰»
     rpc.reset(new RpcManager());
     cout << "RPC start." << endl;

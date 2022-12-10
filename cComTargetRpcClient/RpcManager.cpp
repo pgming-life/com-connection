@@ -13,17 +13,17 @@ RpcManager::~RpcManager()
 
 HRESULT RpcManager::OnInit()
 {
-    unsigned char* szStringBinding = NULL;
+    RPC_WSTR szStringBinding = NULL;
 
     // 文字列バインディングハンドルを作成
     // この関数は単なるprintfで、ここでは接続しない
     m_status = RpcStringBindingCompose(
-        NULL,                                             // バインド先のUUID
-        reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), // TCP/IPプロトコルを使用
-        reinterpret_cast<unsigned char*>("localhost"),    // 使用するTCP/IPネットワークアドレス
-        reinterpret_cast<unsigned char*>("4747"),         // 使用するためのTCP/IPポート
-        NULL,                                             // 使用するプロトコル依存のネットワークオプション
-        &szStringBinding);                                // 文字列バインディングの出力
+        NULL,                       // バインド先のUUID
+        (RPC_WSTR)L"ncacn_ip_tcp",  // TCP/IPプロトコルを使用
+        (RPC_WSTR)L"localhost",     // 使用するTCP/IPネットワークアドレス
+        (RPC_WSTR)L"4747",          // 使用するためのTCP/IPポート
+        NULL,                       // 使用するプロトコル依存のネットワークオプション
+        &szStringBinding);          // 文字列バインディングの出力
     if (m_status)
     {
         m_status = HandleError("Rpc string binding compose", m_status);

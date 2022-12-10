@@ -10,13 +10,13 @@
     <Filter Include="リソース ファイル">
       <UniqueIdentifier>{a40c26aa-a3bf-454e-97dc-c83ca5469b50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Interface">
+      <UniqueIdentifier>{5509a67a-5294-432b-ba9b-5a9dacf05584}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="..\bRpcIdl\RpcIdl_s.c">
-      <Filter>インターフェース</Filter>
     </ClCompile>
     <ClCompile Include="RpcManager.cpp">
       <Filter>ソース ファイル</Filter>
@@ -24,13 +24,19 @@
     <ClCompile Include="RpcUser.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="CClient.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="CSink.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\cRpcIdl\RpcIdl_s.c">
+      <Filter>インターフェース</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="..\bRpcIdl\RpcIdl.h">
-      <Filter>インターフェース</Filter>
     </ClInclude>
     <ClInclude Include="RpcManager.h">
       <Filter>ソース ファイル</Filter>
@@ -38,5 +44,22 @@
     <ClInclude Include="RpcUser.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Interface\CServer.h">
+      <Filter>ソース ファイル\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="CClient.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CSink.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\cRpcIdl\RpcIdl.h">
+      <Filter>インターフェース</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Interface\ComServer.tlb">
+      <Filter>ソース ファイル\Interface</Filter>
+    </None>
   </ItemGroup>
 </Project>

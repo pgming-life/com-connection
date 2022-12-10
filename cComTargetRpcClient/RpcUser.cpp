@@ -31,7 +31,7 @@ DWORD HandleError(const char* szFunction, DWORD dwError)
         NULL,
         dwError,
         MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
-        LPSTR(&pBuffer),
+        LPWSTR(&pBuffer),
         0,
         NULL);
 

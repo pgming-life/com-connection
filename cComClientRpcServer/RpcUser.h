@@ -1,7 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
-#include "../bRpcIdl/RpcIdl.h"
+#include "../cRpcIdl/RpcIdl.h"
 
 // RPCコールバックイベント
 CONTEXT_HANDLE Open(

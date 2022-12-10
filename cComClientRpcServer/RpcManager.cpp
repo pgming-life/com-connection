@@ -16,10 +16,10 @@ HRESULT RpcManager::OnInit()
     // 受信用のエンドポイントと組み合わせたプロトコルを使用
     // Remote Procedure Call
     m_status = RpcServerUseProtseqEp(
-        reinterpret_cast<unsigned char*>("ncacn_ip_tcp"), // TCP/IPプロトコルを使用
-        RPC_C_PROTSEQ_MAX_REQS_DEFAULT,                   // TCP/IPのバックログキューの長さ
-        reinterpret_cast<unsigned char*>("4747"),         // 使用するためのTCP/IPポート
-        NULL);                                            // セキュリティなし
+        (RPC_WSTR)L"ncacn_ip_tcp",      // TCP/IPプロトコルを使用
+        RPC_C_PROTSEQ_MAX_REQS_DEFAULT, // TCP/IPのバックログキューの長さ
+        (RPC_WSTR)L"4747",              // 使用するためのTCP/IPポート
+        NULL);                          // セキュリティなし
     if (m_status)
     {
         m_status = HandleError("RpcServerUseProtseqEp", m_status);
