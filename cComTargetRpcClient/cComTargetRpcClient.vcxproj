@@ -18,8 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\bRpcIdl\RpcIdl_c.c" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RpcManager.cpp" />
+    <ClCompile Include="RpcUser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\bRpcIdl\RpcIdl.h" />
+    <ClInclude Include="RpcManager.h" />
+    <ClInclude Include="RpcUser.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AFCFFD45-D8B0-4025-8E15-DEE1B88FA0B4}</ProjectGuid>
+    <ProjectGuid>{DC1B3F49-8EEC-462C-AD29-FA74F6ECE737}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -74,18 +86,18 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)build\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>RpcComServer</TargetName>
+    <TargetName>ComTargetRpcClient</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)build\$(Configuration)\$(ProjectName)\</IntDir>
-    <TargetName>RpcComServer</TargetName>
+    <TargetName>ComTargetRpcClient</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>RpcComServer</TargetName>
+    <TargetName>ComTargetRpcClient</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>RpcComServer</TargetName>
+    <TargetName>ComTargetRpcClient</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -207,18 +219,6 @@
       </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\bRpcIdl\RpcIdl_s.c" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="RpcManager.cpp" />
-    <ClCompile Include="RpcUser.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\bRpcIdl\RpcIdl.h" />
-    <ClInclude Include="RpcManager.h" />
-    <ClInclude Include="RpcUser.h" />
-    <ClInclude Include="stdafx.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

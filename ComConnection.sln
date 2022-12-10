@@ -19,9 +19,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dComEventClient", "dComEven
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bKeyHookerClient", "bKeyHookerClient\bKeyHookerClient.vcxproj", "{C78ED408-2C0B-468B-81E7-303E8328F911}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cRpcComServer", "cRpcComServer\cRpcComServer.vcxproj", "{AFCFFD45-D8B0-4025-8E15-DEE1B88FA0B4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cComClientRpcServer", "cComClientRpcServer\cComClientRpcServer.vcxproj", "{AFCFFD45-D8B0-4025-8E15-DEE1B88FA0B4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cRpcComClient", "cRpcComClient\cRpcComClient.vcxproj", "{DC1B3F49-8EEC-462C-AD29-FA74F6ECE737}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cComTargetRpcClient", "cComTargetRpcClient\cComTargetRpcClient.vcxproj", "{DC1B3F49-8EEC-462C-AD29-FA74F6ECE737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
