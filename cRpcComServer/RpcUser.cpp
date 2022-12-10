@@ -1,7 +1,7 @@
-#include "RpcServer.h"
+#include "RpcUser.h"
 
 /////////////////////////////////////////////////////
-// RPC制御
+// RPCコールバックイベント
 //
 
 // RPCオープン
@@ -11,25 +11,26 @@ CONTEXT_HANDLE Open(
 {
     string* pContext = new string(szString);
     CONTEXT_HANDLE hContext = pContext;
-    clog << "Open: Binding = " << hBinding
-        << "; Context = " << hContext << endl;
+    clog << "-------------------------" << endl;
+    clog << "Open : Binding(" << hBinding << ")" << endl;
+    clog << "Open : Context(" << hContext << ")" << endl;
     return hContext;
 }
 
-// クライアントへ返信
+// 送信元からイベントをキャッチ
 void Output(
     /* [in] */ CONTEXT_HANDLE hContext)
 {
-    clog << "Output: Context = " << hContext << endl;
+    clog << "Output : Context(" << hContext << ")" << endl;
     string* pContext = static_cast<string*>(hContext);
-    cout << *pContext << endl;
+    cout << ">>> " << *pContext << endl;    // 出力
 }
 
 // RPCクローズ
 void Close(
     /* [out][in] */ CONTEXT_HANDLE* phContext)
 {
-    clog << "Close: Context = " << *phContext << endl;
+    clog << "Close : Context(" << *phContext << ")" << endl;
     string* pContext = static_cast<string*>(*phContext);
     delete pContext;
 
@@ -73,9 +74,11 @@ DWORD HandleError(const char* szFunction, DWORD dwError)
         NULL);
 
     cerr << szFunction << " failed. "
-        << (pBuffer ? LPCTSTR(pBuffer) : "Unknown error. ")
+        << (pBuffer ? LPCSTR(pBuffer) : "Unknown error. ")
         << "(" << dwError << ")" << endl;
+    
     LocalFree(pBuffer);
+    
     return dwError;
 }
 
@@ -99,6 +102,6 @@ DWORD WINAPI RpcServerListenThreadProc(LPVOID /*pParam*/)
 // クライアントへの接続が失われた場合、RPCランタイムはこの関数をコール
 void __RPC_USER CONTEXT_HANDLE_rundown(CONTEXT_HANDLE hContext)
 {
-    clog << "CONTEXT_HANDLE_rundown: Context = " << hContext << endl;
+    clog << "CONTEXT_HANDLE_rundown : Context(" << hContext << ")" << endl;
     Close(&hContext);
 }

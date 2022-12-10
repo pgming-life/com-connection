@@ -12,22 +12,28 @@
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="RpcClient.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="..\bRpcIdl\RpcIdl_c.c">
       <Filter>インターフェース</Filter>
     </ClCompile>
+    <ClCompile Include="RpcManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="RpcUser.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RpcClient.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\bRpcIdl\RpcIdl.h">
       <Filter>インターフェース</Filter>
+    </ClInclude>
+    <ClInclude Include="RpcManager.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="RpcUser.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

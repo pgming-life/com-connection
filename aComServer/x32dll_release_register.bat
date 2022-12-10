@@ -8,7 +8,7 @@ if not %ERRORLEVEL% == 0 (
 
 echo %~dpn0
 cd /d %~dp0
-echo %WINDIR%\SysWOW64\regsvr32 /s bin\Win32\Release\ComServer.dll
-%WINDIR%\SysWOW64\regsvr32 /s bin\Win32\Release\ComServer.dll
+echo %WINDIR%\SysWOW64\regsvr32 /s ..\bin\Win32\Release\ComServer.dll
+%WINDIR%\SysWOW64\regsvr32 /s ..\bin\Win32\Release\ComServer.dll
 
 pause

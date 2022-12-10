@@ -1,4 +1,4 @@
-#include "RpcClient.h"
+#include "RpcUser.h"
 
 /////////////////////////////////////////////////////
 // RPCÉÅÉÇÉä
@@ -38,6 +38,8 @@ DWORD HandleError(const char* szFunction, DWORD dwError)
     cerr << szFunction << " failed. "
         << (pBuffer ? LPCSTR(pBuffer) : "Unknown error. ")
         << "(" << dwError << ")" << endl;
+    
     LocalFree(pBuffer);
+
     return dwError;
 }

@@ -8,7 +8,7 @@ if not %ERRORLEVEL% == 0 (
 
 echo %~dpn0
 cd /d %~dp0
-echo %WINDIR%\System32\regsvr32 /u bin\x64\Debug\ComServer.dll
-%WINDIR%\System32\regsvr32 /u bin\x64\Debug\ComServer.dll
+echo %WINDIR%\System32\regsvr32 /u ..\bin\x64\Debug\ComServer.dll
+%WINDIR%\System32\regsvr32 /u ..\bin\x64\Debug\ComServer.dll
 
 pause
