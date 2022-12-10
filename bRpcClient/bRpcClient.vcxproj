@@ -21,11 +21,13 @@
   <ItemGroup>
     <ClCompile Include="..\bRpcIdl\RpcIdl_c.c" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="RpcClient.cpp" />
+    <ClCompile Include="RpcUser.cpp" />
+    <ClCompile Include="RpcManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\bRpcIdl\RpcIdl.h" />
-    <ClInclude Include="RpcClient.h" />
+    <ClInclude Include="RpcUser.h" />
+    <ClInclude Include="RpcManager.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
