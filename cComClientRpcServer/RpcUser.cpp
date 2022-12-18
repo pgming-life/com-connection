@@ -8,10 +8,9 @@
 // RPCオープン
 CONTEXT_HANDLE Open(
     /* [in] */ handle_t hBinding,
-    /* [string][in] */ const char* szString)
+    /* [ptr][in] */ INPUT_DATA* pData)
 {
-    string* pContext = new string(szString);
-    CONTEXT_HANDLE hContext = pContext;
+    CONTEXT_HANDLE hContext = pData;
     clog << "-------------------------" << endl;
     clog << "Open : Binding(" << hBinding << ")" << endl;
     clog << "Open : Context(" << hContext << ")" << endl;
@@ -23,13 +22,21 @@ void Output(
     /* [in] */ CONTEXT_HANDLE hContext)
 {
     clog << "Output : Context(" << hContext << ")" << endl;
-    string* pContext = static_cast<string*>(hContext);
-    cout << ">>> " << *pContext << endl;    // 出力
+    INPUT_DATA* pContext = static_cast<INPUT_DATA*>(hContext);
+    string* pStr1 = new string(pContext->szStr1);
+    string* pStr2 = new string(pContext->szStr2);
 
-    cout << "2 and 3 sending." << endl;
     CClient client;
-    client.OnInit(2, 3);
-    if (FAILED(client.OnSendToServer()))
+    client.OnInit();
+    cout << ">>> " << *pStr1 << endl;
+    cout << ">>> " << pContext->args1[0] << " + " << pContext->args1[1] << endl;
+    if (FAILED(client.OnSendToServer(pContext->args1[0], pContext->args1[1])))
+    {
+        cout << "Failure..." << endl;
+    }
+    cout << ">>> " << *pStr2 << endl;
+    cout << ">>> " << pContext->args2[0] << " + " << pContext->args2[1] << endl;
+    if (FAILED(client.OnSendToServer(pContext->args2[0], pContext->args2[1])))
     {
         cout << "Failure..." << endl;
     }
@@ -40,8 +47,6 @@ void Close(
     /* [out][in] */ CONTEXT_HANDLE* phContext)
 {
     clog << "Close : Context(" << *phContext << ")" << endl;
-    string* pContext = static_cast<string*>(*phContext);
-    delete pContext;
 
     // コンテキストハンドルをNULLに設定
     *phContext = NULL;

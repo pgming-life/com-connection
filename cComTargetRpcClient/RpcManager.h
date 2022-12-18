@@ -10,7 +10,7 @@ public:
     ~RpcManager();
 
     HRESULT OnInit();
-    HRESULT OnSend();
+    HRESULT OnSend(INPUT_DATA* pData);
     HRESULT OnDestroy();
 
 private:

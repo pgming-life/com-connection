@@ -53,9 +53,17 @@ extern "C"{
 
 typedef /* [context_handle] */ void *CONTEXT_HANDLE;
 
+typedef struct INPUT_DATA
+    {
+    /* [string] */ const char *szStr1;
+    int args1[ 2 ];
+    /* [string] */ const char *szStr2;
+    int args2[ 2 ];
+    } 	INPUT_DATA;
+
 CONTEXT_HANDLE Open( 
     /* [in] */ handle_t hBinding,
-    /* [string][in] */ const char *szString);
+    /* [full][in] */ INPUT_DATA *pData);
 
 void Output( 
     /* [in] */ CONTEXT_HANDLE hContext);

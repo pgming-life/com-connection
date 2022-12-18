@@ -6,7 +6,7 @@
 // RPCコールバックイベント
 CONTEXT_HANDLE Open(
     /* [in] */ handle_t hBinding,
-    /* [string][in] */ const char* szString);
+    /* [ptr][in] */ INPUT_DATA* pData);
 void Output(
     /* [in] */ CONTEXT_HANDLE hContext);
 void Close(

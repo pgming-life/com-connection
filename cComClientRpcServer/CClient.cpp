@@ -16,11 +16,8 @@ CClient::~CClient()
 	CoUninitialize();
 }
 
-HRESULT CClient::OnInit(UINT num1, UINT num2)
+HRESULT CClient::OnInit()
 {
-	m_num1 = num1;
-	m_num2 = num2;
-	
 	// COM初期化
 	HRESULT hr = CoInitialize(NULL);
 	if (FAILED(hr)) return hr;
@@ -28,7 +25,7 @@ HRESULT CClient::OnInit(UINT num1, UINT num2)
 	return S_OK;
 }
 
-HRESULT CClient::OnSendToServer() 
+HRESULT CClient::OnSendToServer(UINT num1, UINT num2)
 {
 	HRESULT  hr;
 
@@ -68,7 +65,7 @@ HRESULT CClient::OnSendToServer()
 	
 	// COMサーバーにパラメータを送信
 	cout << "Sending..." << endl;
-    pAdd->SumUp(m_num1, m_num2);
+    pAdd->SumUp(num1, num2);
 
 	// サーバーから切断
 	pCP->Unadvise(dwAdvise);

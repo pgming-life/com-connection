@@ -31,7 +31,7 @@
 
 #include "RpcIdl.h"
 
-#define TYPE_FORMAT_STRING_SIZE   23                                
+#define TYPE_FORMAT_STRING_SIZE   57                                
 #define PROC_FORMAT_STRING_SIZE   119                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
@@ -98,7 +98,7 @@ static RPC_BINDING_HANDLE RpcIdl__MIDL_AutoBindHandle;
 
 CONTEXT_HANDLE Open( 
     /* [in] */ handle_t hBinding,
-    /* [string][in] */ const char *szString)
+    /* [full][in] */ INPUT_DATA *pData)
 {
 
     CLIENT_CALL_RETURN _RetVal;
@@ -108,7 +108,7 @@ CONTEXT_HANDLE Open(
                   0,
                   0,
                   hBinding,
-                  szString);
+                  pData);
     return ( CONTEXT_HANDLE  )_RetVal.Pointer;
     
 }
@@ -152,7 +152,7 @@ static const RpcIdl_MIDL_PROC_FORMAT_STRING RpcIdl__MIDL_ProcFormatString =
 	/* Procedure Open */
 
 			0x0,		/* 0 */
-			0x48,		/* Old Flags:  */
+			0x49,		/* Old Flags:  full ptr, */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x0 ),	/* 0 */
 /*  8 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
@@ -170,17 +170,17 @@ static const RpcIdl_MIDL_PROC_FORMAT_STRING RpcIdl__MIDL_ProcFormatString =
 /* 26 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 28 */	NdrFcShort( 0x0 ),	/* 0 */
 
-	/* Parameter szString */
+	/* Parameter pData */
 
-/* 30 */	NdrFcShort( 0x10b ),	/* Flags:  must size, must free, in, simple ref, */
+/* 30 */	NdrFcShort( 0xb ),	/* Flags:  must size, must free, in, */
 /* 32 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
-/* 34 */	NdrFcShort( 0x4 ),	/* Type Offset=4 */
+/* 34 */	NdrFcShort( 0x2 ),	/* Type Offset=2 */
 
 	/* Return value */
 
 /* 36 */	NdrFcShort( 0x30 ),	/* Flags:  out, return, */
 /* 38 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
-/* 40 */	NdrFcShort( 0x6 ),	/* Type Offset=6 */
+/* 40 */	NdrFcShort( 0x28 ),	/* Type Offset=40 */
 
 	/* Procedure Output */
 
@@ -209,7 +209,7 @@ static const RpcIdl_MIDL_PROC_FORMAT_STRING RpcIdl__MIDL_ProcFormatString =
 
 /* 74 */	NdrFcShort( 0x8 ),	/* Flags:  in, */
 /* 76 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 78 */	NdrFcShort( 0xa ),	/* Type Offset=10 */
+/* 78 */	NdrFcShort( 0x2c ),	/* Type Offset=44 */
 
 	/* Procedure Close */
 
@@ -238,7 +238,7 @@ static const RpcIdl_MIDL_PROC_FORMAT_STRING RpcIdl__MIDL_ProcFormatString =
 
 /* 112 */	NdrFcShort( 0x118 ),	/* Flags:  in, out, simple ref, */
 /* 114 */	NdrFcShort( 0x0 ),	/* X64 Stack size/offset = 0 */
-/* 116 */	NdrFcShort( 0x12 ),	/* Type Offset=18 */
+/* 116 */	NdrFcShort( 0x34 ),	/* Type Offset=52 */
 
 			0x0
         }
@@ -250,24 +250,54 @@ static const RpcIdl_MIDL_TYPE_FORMAT_STRING RpcIdl__MIDL_TypeFormatString =
         {
 			NdrFcShort( 0x0 ),	/* 0 */
 /*  2 */	
-			0x11, 0x8,	/* FC_RP [simple_pointer] */
-/*  4 */	
+			0x14, 0x0,	/* FC_FP */
+/*  4 */	NdrFcShort( 0x8 ),	/* Offset= 8 (12) */
+/*  6 */	
+			0x1d,		/* FC_SMFARRAY */
+			0x3,		/* 3 */
+/*  8 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 10 */	0x8,		/* FC_LONG */
+			0x5b,		/* FC_END */
+/* 12 */	
+			0x1a,		/* FC_BOGUS_STRUCT */
+			0x3,		/* 3 */
+/* 14 */	NdrFcShort( 0x20 ),	/* 32 */
+/* 16 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 18 */	NdrFcShort( 0xe ),	/* Offset= 14 (32) */
+/* 20 */	0x36,		/* FC_POINTER */
+			0x4c,		/* FC_EMBEDDED_COMPLEX */
+/* 22 */	0x0,		/* 0 */
+			NdrFcShort( 0xffef ),	/* Offset= -17 (6) */
+			0x36,		/* FC_POINTER */
+/* 26 */	0x4c,		/* FC_EMBEDDED_COMPLEX */
+			0x0,		/* 0 */
+/* 28 */	NdrFcShort( 0xffea ),	/* Offset= -22 (6) */
+/* 30 */	0x5c,		/* FC_PAD */
+			0x5b,		/* FC_END */
+/* 32 */	
+			0x12, 0x8,	/* FC_UP [simple_pointer] */
+/* 34 */	
 			0x22,		/* FC_C_CSTRING */
 			0x5c,		/* FC_PAD */
-/*  6 */	0x30,		/* FC_BIND_CONTEXT */
+/* 36 */	
+			0x12, 0x8,	/* FC_UP [simple_pointer] */
+/* 38 */	
+			0x22,		/* FC_C_CSTRING */
+			0x5c,		/* FC_PAD */
+/* 40 */	0x30,		/* FC_BIND_CONTEXT */
 			0x30,		/* Ctxt flags:  out, ret, */
-/*  8 */	0x0,		/* 0 */
+/* 42 */	0x0,		/* 0 */
 			0x0,		/* 0 */
-/* 10 */	0x30,		/* FC_BIND_CONTEXT */
+/* 44 */	0x30,		/* FC_BIND_CONTEXT */
 			0x41,		/* Ctxt flags:  in, can't be null */
-/* 12 */	0x0,		/* 0 */
+/* 46 */	0x0,		/* 0 */
 			0x0,		/* 0 */
-/* 14 */	
+/* 48 */	
 			0x11, 0x4,	/* FC_RP [alloced_on_stack] */
-/* 16 */	NdrFcShort( 0x2 ),	/* Offset= 2 (18) */
-/* 18 */	0x30,		/* FC_BIND_CONTEXT */
+/* 50 */	NdrFcShort( 0x2 ),	/* Offset= 2 (52) */
+/* 52 */	0x30,		/* FC_BIND_CONTEXT */
 			0xe1,		/* Ctxt flags:  via ptr, in, out, can't be null */
-/* 20 */	0x0,		/* 0 */
+/* 54 */	0x0,		/* 0 */
 			0x0,		/* 0 */
 
 			0x0
@@ -319,11 +349,26 @@ static const unsigned short RpcIdl_FormatStringOffsetTable[] =
 
 typedef 
 struct _NDR64_CONTEXT_HANDLE_FORMAT
+__midl_frag12_t;
+extern const __midl_frag12_t __midl_frag12;
+
+typedef 
+struct _NDR64_POINTER_FORMAT
+__midl_frag11_t;
+extern const __midl_frag11_t __midl_frag11;
+
+typedef 
+struct 
+{
+    struct _NDR64_PROC_FORMAT frag1;
+    struct _NDR64_BIND_AND_NOTIFY_EXTENSION frag2;
+    struct _NDR64_PARAM_FORMAT frag3;
+}
 __midl_frag10_t;
 extern const __midl_frag10_t __midl_frag10;
 
 typedef 
-struct _NDR64_POINTER_FORMAT
+struct _NDR64_CONTEXT_HANDLE_FORMAT
 __midl_frag9_t;
 extern const __midl_frag9_t __midl_frag9;
 
@@ -343,22 +388,25 @@ __midl_frag7_t;
 extern const __midl_frag7_t __midl_frag7;
 
 typedef 
-struct 
-{
-    struct _NDR64_PROC_FORMAT frag1;
-    struct _NDR64_BIND_AND_NOTIFY_EXTENSION frag2;
-    struct _NDR64_PARAM_FORMAT frag3;
-}
+struct _NDR64_CONFORMANT_STRING_FORMAT
 __midl_frag6_t;
 extern const __midl_frag6_t __midl_frag6;
 
 typedef 
-struct _NDR64_CONTEXT_HANDLE_FORMAT
-__midl_frag5_t;
-extern const __midl_frag5_t __midl_frag5;
-
-typedef 
-struct _NDR64_CONFORMANT_STRING_FORMAT
+struct 
+{
+    struct _NDR64_STRUCTURE_HEADER_FORMAT frag1;
+    struct 
+    {
+        struct _NDR64_NO_REPEAT_FORMAT frag1;
+        struct _NDR64_POINTER_INSTANCE_HEADER_FORMAT frag2;
+        struct _NDR64_POINTER_FORMAT frag3;
+        struct _NDR64_NO_REPEAT_FORMAT frag4;
+        struct _NDR64_POINTER_INSTANCE_HEADER_FORMAT frag5;
+        struct _NDR64_POINTER_FORMAT frag6;
+        NDR64_FORMAT_CHAR frag7;
+    } frag2;
+}
 __midl_frag4_t;
 extern const __midl_frag4_t __midl_frag4;
 
@@ -383,7 +431,7 @@ NDR64_FORMAT_UINT32
 __midl_frag1_t;
 extern const __midl_frag1_t __midl_frag1;
 
-static const __midl_frag10_t __midl_frag10 =
+static const __midl_frag12_t __midl_frag12 =
 { 
 /* struct _NDR64_CONTEXT_HANDLE_FORMAT */
     0x70,    /* FC64_BIND_CONTEXT */
@@ -392,16 +440,16 @@ static const __midl_frag10_t __midl_frag10 =
     (NDR64_UINT8) 0 /* 0x0 */
 };
 
-static const __midl_frag9_t __midl_frag9 =
+static const __midl_frag11_t __midl_frag11 =
 { 
 /* *struct _NDR64_POINTER_FORMAT */
     0x20,    /* FC64_RP */
     (NDR64_UINT8) 4 /* 0x4 */,
     (NDR64_UINT16) 0 /* 0x0 */,
-    &__midl_frag10
+    &__midl_frag12
 };
 
-static const __midl_frag8_t __midl_frag8 =
+static const __midl_frag10_t __midl_frag10 =
 { 
 /* Close */
     { 
@@ -429,7 +477,7 @@ static const __midl_frag8_t __midl_frag8 =
     },
     { 
     /* phContext */      /* parameter phContext */
-        &__midl_frag10,
+        &__midl_frag12,
         { 
         /* phContext */
             0,
@@ -453,7 +501,7 @@ static const __midl_frag8_t __midl_frag8 =
     }
 };
 
-static const __midl_frag7_t __midl_frag7 =
+static const __midl_frag9_t __midl_frag9 =
 { 
 /* struct _NDR64_CONTEXT_HANDLE_FORMAT */
     0x70,    /* FC64_BIND_CONTEXT */
@@ -462,7 +510,7 @@ static const __midl_frag7_t __midl_frag7 =
     (NDR64_UINT8) 0 /* 0x0 */
 };
 
-static const __midl_frag6_t __midl_frag6 =
+static const __midl_frag8_t __midl_frag8 =
 { 
 /* Output */
     { 
@@ -490,7 +538,7 @@ static const __midl_frag6_t __midl_frag6 =
     },
     { 
     /* hContext */      /* parameter hContext */
-        &__midl_frag7,
+        &__midl_frag9,
         { 
         /* hContext */
             0,
@@ -514,7 +562,7 @@ static const __midl_frag6_t __midl_frag6 =
     }
 };
 
-static const __midl_frag5_t __midl_frag5 =
+static const __midl_frag7_t __midl_frag7 =
 { 
 /* struct _NDR64_CONTEXT_HANDLE_FORMAT */
     0x70,    /* FC64_BIND_CONTEXT */
@@ -523,7 +571,7 @@ static const __midl_frag5_t __midl_frag5 =
     (NDR64_UINT8) 0 /* 0x0 */
 };
 
-static const __midl_frag4_t __midl_frag4 =
+static const __midl_frag6_t __midl_frag6 =
 { 
 /* *char */
     { 
@@ -544,10 +592,75 @@ static const __midl_frag4_t __midl_frag4 =
     }
 };
 
+static const __midl_frag4_t __midl_frag4 =
+{ 
+/* INPUT_DATA */
+    { 
+    /* INPUT_DATA */
+        0x31,    /* FC64_PSTRUCT */
+        (NDR64_UINT8) 7 /* 0x7 */,
+        { 
+        /* INPUT_DATA */
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        },
+        (NDR64_UINT8) 0 /* 0x0 */,
+        (NDR64_UINT32) 32 /* 0x20 */
+    },
+    { 
+    /*  */
+        { 
+        /* struct _NDR64_NO_REPEAT_FORMAT */
+            0x80,    /* FC64_NO_REPEAT */
+            (NDR64_UINT8) 0 /* 0x0 */,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            (NDR64_UINT32) 0 /* 0x0 */
+        },
+        { 
+        /* struct _NDR64_POINTER_INSTANCE_HEADER_FORMAT */
+            (NDR64_UINT32) 0 /* 0x0 */,
+            (NDR64_UINT32) 0 /* 0x0 */
+        },
+        { 
+        /* *char */
+            0x21,    /* FC64_UP */
+            (NDR64_UINT8) 0 /* 0x0 */,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            &__midl_frag6
+        },
+        { 
+        /* struct _NDR64_NO_REPEAT_FORMAT */
+            0x80,    /* FC64_NO_REPEAT */
+            (NDR64_UINT8) 0 /* 0x0 */,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            (NDR64_UINT32) 0 /* 0x0 */
+        },
+        { 
+        /* struct _NDR64_POINTER_INSTANCE_HEADER_FORMAT */
+            (NDR64_UINT32) 16 /* 0x10 */,
+            (NDR64_UINT32) 0 /* 0x0 */
+        },
+        { 
+        /* *char */
+            0x21,    /* FC64_UP */
+            (NDR64_UINT8) 0 /* 0x0 */,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            &__midl_frag6
+        },
+        0x93    /* FC64_END */
+    }
+};
+
 static const __midl_frag3_t __midl_frag3 =
 { 
-/* *char */
-    0x20,    /* FC64_RP */
+/* *INPUT_DATA */
+    0x23,    /* FC64_FP */
     (NDR64_UINT8) 0 /* 0x0 */,
     (NDR64_UINT16) 0 /* 0x0 */,
     &__midl_frag4
@@ -558,7 +671,7 @@ static const __midl_frag2_t __midl_frag2 =
 /* Open */
     { 
     /* Open */      /* procedure Open */
-        (NDR64_UINT32) 17563712 /* 0x10c0040 */,    /* explicit handle */ /* IsIntrepreted, ClientMustSize, HasReturn, HasExtensions */
+        (NDR64_UINT32) 17567808 /* 0x10c1040 */,    /* explicit handle */ /* IsIntrepreted, [ptr], ClientMustSize, HasReturn, HasExtensions */
         (NDR64_UINT32) 24 /* 0x18 */ ,  /* Stack size */
         (NDR64_UINT32) 0 /* 0x0 */,
         (NDR64_UINT32) 36 /* 0x24 */,
@@ -580,10 +693,10 @@ static const __midl_frag2_t __midl_frag2 =
         (NDR64_UINT16) 0 /* 0x0 */      /* Notify index */
     },
     { 
-    /* szString */      /* parameter szString */
-        &__midl_frag4,
+    /* pData */      /* parameter pData */
+        &__midl_frag3,
         { 
-        /* szString */
+        /* pData */
             1,
             1,
             0,
@@ -592,20 +705,20 @@ static const __midl_frag2_t __midl_frag2 =
             0,
             0,
             0,
-            1,
+            0,
             0,
             0,
             0,
             0,
             (NDR64_UINT16) 0 /* 0x0 */,
             0
-        },    /* MustSize, MustFree, [in], SimpleRef */
+        },    /* MustSize, MustFree, [in] */
         (NDR64_UINT16) 0 /* 0x0 */,
         8 /* 0x8 */,   /* Stack offset */
     },
     { 
     /* CONTEXT_HANDLE */      /* parameter CONTEXT_HANDLE */
-        &__midl_frag5,
+        &__midl_frag7,
         { 
         /* CONTEXT_HANDLE */
             0,
@@ -639,8 +752,8 @@ static const __midl_frag1_t __midl_frag1 =
 static const FormatInfoRef RpcIdl_Ndr64ProcTable[] =
     {
     &__midl_frag2,
-    &__midl_frag6,
-    &__midl_frag8
+    &__midl_frag8,
+    &__midl_frag10
     };
 
 

@@ -1,3 +1,5 @@
+#define MAX_INDEX 2
+
 [
     // インターフェースを他のインターフェースと区別する一意の識別子
     uuid(00000003-EAF3-4A7A-A0F2-BCE4C30DA77E),
@@ -10,12 +12,20 @@ interface RpcIdl
     // コンテキストハンドルを完全に使用するには、typedefを実行する必要がある
     typedef [context_handle] void* CONTEXT_HANDLE;
 
+    typedef struct INPUT_DATA
+    {
+        [string] const char* szStr1;
+        int args1[0..(MAX_INDEX - 1)];
+        [string] const char* szStr2;
+        int args2[0..(MAX_INDEX - 1)];
+    } INPUT_DATA;
+
     // サーバー上でコンテキストをオープン
     CONTEXT_HANDLE Open(
         // 明示的なサーバーバインディングハンドル
         [in] handle_t hBinding,
-        // サーバー上で出力される文字列
-        [in, string] const char* szString);
+        // サーバー上で出力される配列
+        [in, ptr] INPUT_DATA* pData);
 
     // サーバー上のコンテキスト文字列を出力
     void Output(
