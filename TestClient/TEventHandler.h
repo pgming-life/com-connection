@@ -1,8 +1,11 @@
 
 #ifndef TEVENT_HANDLER_H
-#define TEVENT_HANDLER_H
+  #define TEVENT_HANDLER_H
 
-#include "stdafx.h"
+#include <windows.h>
+//#include <SHLOBJ.H>
+//#include <memory>
+//#include <string>
 
 namespace TEventHandlerNamespace
 {
@@ -168,4 +171,9 @@ public :
 
 };
 
+
+
+
+
 #endif
+
