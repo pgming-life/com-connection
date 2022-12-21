@@ -1,6 +1,6 @@
 ; EventFiringObject.def : Declares the module parameters.
 
-LIBRARY      "EventFiringObject.DLL"
+LIBRARY      "ComIDispatchServer.DLL"
 
 EXPORTS
 	DllCanUnloadNow     @1 PRIVATE

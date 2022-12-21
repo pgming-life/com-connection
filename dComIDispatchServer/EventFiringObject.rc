@@ -40,7 +40,7 @@ END
 
 3 TEXTINCLUDE DISCARDABLE 
 BEGIN
-    "1 TYPELIB ""EventFiringObject.tlb""\r\n"
+    "1 TYPELIB ""ComIDispatchServer.tlb""\r\n"
     "\0"
 END
 
@@ -71,13 +71,13 @@ BEGIN
         BLOCK "040904B0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "EventFiringObject Module\0"
-            VALUE "FileVersion", "1, 0, 0, 1\0"
-            VALUE "InternalName", "EventFiringObject\0"
-            VALUE "LegalCopyright", "Copyright 2004\0"
-            VALUE "OriginalFilename", "EventFiringObject.DLL\0"
-            VALUE "ProductName", "EventFiringObject Module\0"
-            VALUE "ProductVersion", "1, 0, 0, 1\0"
+            VALUE "FileDescription", "ComIDispatchServer Module\0"
+            VALUE "FileVersion", "1, 0, 0, 0\0"
+            VALUE "InternalName", "ComIDispatchServer\0"
+            VALUE "LegalCopyright", "Copyright 2022\0"
+            VALUE "OriginalFilename", "ComIDispatchServer.DLL\0"
+            VALUE "ProductName", "ComIDispatchServer Module\0"
+            VALUE "ProductVersion", "1, 0, 0, 0\0"
             VALUE "OLESelfRegister", "\0"
         END
     END
@@ -104,7 +104,7 @@ IDR_EVENTFIRINGOBJECT   REGISTRY DISCARDABLE    "EventFiringObject.rgs"
 
 STRINGTABLE DISCARDABLE 
 BEGIN
-    IDS_PROJNAME            "EventFiringObject"
+    IDS_PROJNAME            "ComIDispatchServer"
 END
 
 #endif    // English (U.S.) resources
@@ -117,7 +117,7 @@ END
 //
 // Generated from the TEXTINCLUDE 3 resource.
 //
-1 TYPELIB "EventFiringObject.tlb"
+1 TYPELIB "ComIDispatchServer.tlb"
 
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED

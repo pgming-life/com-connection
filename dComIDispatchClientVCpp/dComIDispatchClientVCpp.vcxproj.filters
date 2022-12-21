@@ -14,17 +14,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="EventFiringObject.dll">
-      <Filter>インターフェース</Filter>
-    </None>
-    <None Include="EventFiringObject.tlh">
-      <Filter>インターフェース</Filter>
-    </None>
-    <None Include="EventFiringObject.tli">
-      <Filter>インターフェース</Filter>
-    </None>
     <None Include="res\TestClient.rc2">
       <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="..\bin\Win32\Release\ComIDispatchServer.dll">
+      <Filter>インターフェース</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

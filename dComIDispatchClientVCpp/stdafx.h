@@ -26,7 +26,7 @@
 #pragma warning(disable : 4786)
 
 // ***** import the COM object's type library as usual. *****
-#import "EventFiringObject.dll"
+#import "../bin/Win32/Release/ComIDispatchServer.dll"
 using namespace EVENTFIRINGOBJECTLib;
 
 // ***** include our TEventHandler.h header class and use the TEventHandlerNamespace namespace. *****

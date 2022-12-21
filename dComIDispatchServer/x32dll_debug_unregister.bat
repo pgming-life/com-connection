@@ -8,7 +8,7 @@ if not %ERRORLEVEL% == 0 (
 
 echo %~dpn0
 cd /d %~dp0
-echo %WINDIR%\SysWOW64\regsvr32 /s EventFiringObject.dll
-%WINDIR%\SysWOW64\regsvr32 /s EventFiringObject.dll
+echo %WINDIR%\SysWOW64\regsvr32 /u ..\bin\Win32\Debug\ComIDispatchServer.dll
+%WINDIR%\SysWOW64\regsvr32 /u ..\bin\Win32\Debug\ComIDispatchServer.dll
 
 pause
