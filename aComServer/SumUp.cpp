@@ -10,7 +10,7 @@ STDMETHODIMP CSumUp::SumUp(int a, int b)
 	Sleep(2000);
 	
 	// プロセスを終了してクライアントに通知
-	Fire_ExecutionOver(a+b); 
+	Fire_ExecutionOver(a + b); 
 
 	return S_OK;
 }

@@ -28,5 +28,5 @@ CONNECTION_POINT_ENTRY(IID__ISumUpEvents)
 END_CONNECTION_POINT_MAP()
 
 // ÉÅÉ\ÉbÉh
-STDMETHOD(SumUp)(int a,int b);
+	STDMETHOD(SumUp)(int a,int b);
 };
