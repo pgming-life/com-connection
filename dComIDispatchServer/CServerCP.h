@@ -5,7 +5,7 @@ class CProxy_ISumUpEvents : public IConnectionPointImpl<T, &DIID__ISumUpEvents, 
 {
 	// 警告: このクラスはウィザードによって再作成される可能性アリ
 public:
-	HRESULT Fire_Event1(LONG lValue)
+	HRESULT Fire_Event1(INT Result)
 	{
 		CComVariant varResult;
 		T* pT = static_cast<T*>(this);
@@ -22,7 +22,7 @@ public:
 			if (pDispatch != NULL)
 			{
 				VariantClear(&varResult);
-				pvars[0] = lValue;
+				pvars[0] = Result;
 				DISPPARAMS disp = { pvars, NULL, 1, 0 };
 				pDispatch->Invoke(0x1, IID_NULL, LOCALE_USER_DEFAULT, DISPATCH_METHOD, &disp, &varResult, NULL, NULL);
 			}

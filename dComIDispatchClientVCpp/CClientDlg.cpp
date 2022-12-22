@@ -153,7 +153,7 @@ HRESULT CClientDlg::OnSumUpInvoke(
 		Result = V_I4(&varResult);
 
 		TCHAR szMessage[256];
-		sprintf_s (szMessage, "SumUp is fired with value : %d.", Result);
+		sprintf_s (szMessage, "Sum up result : %d", Result);
 		::MessageBox (NULL, szMessage, "Event", MB_OK);
 	}
 
@@ -181,5 +181,5 @@ void CClientDlg::OnButtonCallFunction()
 	// TODO: コントロール通知ハンドラ コードをここに追加
 	// ISumUp.ExecutionOver() を呼び出す
 	// これにより、ISumUp を実装するオブジェクトが Event1 を起動する
-	m_spISumUp->SumUp(123);
+	m_spISumUp->SumUp(2, 3);
 }

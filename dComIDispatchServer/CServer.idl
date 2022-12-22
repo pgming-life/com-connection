@@ -14,7 +14,7 @@ import "ocidl.idl";
 	]
 	interface ISumUp : IDispatch
 	{
-		[id(1), helpstring("method SumUp")] HRESULT SumUp([in] long lValue);
+		[id(1), helpstring("method SumUp")] HRESULT SumUp([in] int a, int b);
 	};
 
 [
@@ -35,7 +35,7 @@ library CONNECTIONCOMLib
 	{
 		properties:
 		methods:
-		[id(1), helpstring("method Event1")] HRESULT Event1([in] long Result);
+		[id(1), helpstring("method Event1")] HRESULT Event1([in] int Result);
 	};
 
 	[

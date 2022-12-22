@@ -33,5 +33,5 @@ END_CONNECTION_POINT_MAP()
 	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
 // ISumUp
-	STDMETHOD(SumUp)(/*[in]*/ long lValue);
+	STDMETHOD(SumUp)(/*[in]*/ int a, int b);
 };

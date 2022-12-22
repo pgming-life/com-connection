@@ -15,7 +15,7 @@ STDMETHODIMP CSumUp::InterfaceSupportsErrorInfo(REFIID riid)
 	return S_FALSE;
 }
 
-STDMETHODIMP CSumUp::SumUp(long lValue)
+STDMETHODIMP CSumUp::SumUp(int a, int b)
 {
 	// TODO: ここに実装コードを追加
 
@@ -23,7 +23,7 @@ STDMETHODIMP CSumUp::SumUp(long lValue)
 	Sleep(2000);
 
 	// プロセスを終了してクライアントに通知
-	Fire_Event1(lValue);
+	Fire_Event1(a + b);
 
 	return S_OK;
 }
