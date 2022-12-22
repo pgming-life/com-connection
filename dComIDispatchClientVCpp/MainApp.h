@@ -1,9 +1,9 @@
-#include "resource.h"
+#pragma once
 
-class CTestClientApp : public CWinApp
+class MainApp : public CWinApp
 {
 public:
-	CTestClientApp();
+	MainApp();
 
 	virtual BOOL InitInstance();
 	virtual int ExitInstance();

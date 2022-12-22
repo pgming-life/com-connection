@@ -1,13 +1,17 @@
-class CTestClientDlg;
+#pragma once
+
+#include "resource.h"
+
+class CClientDlg;
 
 // TEventHandler テンプレートを使用してイベント処理クラスを宣言
-typedef TEventHandler<CTestClientDlg, ISumUp, _ISumUpEvents> ISumUpEventHandler;
+typedef TEventHandler<CClientDlg, ISumUp, _ISumUpEvents> ISumUpEventHandler;
 
-class CTestClientDlg : public CDialog
+class CClientDlg : public CDialog
 {
 public:
-	CTestClientDlg(CWnd* pParent = NULL);
-	enum { IDD = IDD_TESTCLIENT_DIALOG };
+	CClientDlg(CWnd* pParent = NULL);
+	enum { IDD = IDD_CLIENT_DIALOG };
 
 	// ClassWizard によって生成された仮想関数のオーバーライド
 protected:
@@ -29,8 +33,7 @@ protected:
 	afx_msg void OnButtonCallFunction();
 	DECLARE_MESSAGE_MAP()
 
-	HRESULT OnSumUpInvoke
-	(
+	HRESULT OnSumUpInvoke(
 	  ISumUpEventHandler* pEventHandler,
 	  DISPID dispidMember, 
 	  REFIID riid,
@@ -39,6 +42,5 @@ protected:
 	  DISPPARAMS* pdispparams, 
 	  VARIANT* pvarResult,
 	  EXCEPINFO* pexcepinfo, 
-	  UINT* puArgErr
-	);
+	  UINT* puArgErr);
 };

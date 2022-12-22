@@ -14,11 +14,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\TestClient.rc2">
-      <Filter>リソース ファイル</Filter>
-    </None>
     <None Include="..\bin\Win32\Release\ComIDispatchServer.dll">
       <Filter>インターフェース</Filter>
+    </None>
+    <None Include="res\Client.rc2">
+      <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -28,13 +28,13 @@
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="TestClient.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="TestClientDlg.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="TEventHandler.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="MainApp.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="CClientDlg.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,20 +42,20 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TestClient.cpp">
+    <ClCompile Include="MainApp.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TestClientDlg.cpp">
+    <ClCompile Include="CClientDlg.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TestClient.rc">
+    <ResourceCompile Include="CClient.rc">
       <Filter>リソース ファイル</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\TestClient.ico">
+    <Image Include="res\Client.ico">
       <Filter>リソース ファイル</Filter>
     </Image>
   </ItemGroup>

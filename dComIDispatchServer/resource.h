@@ -2,7 +2,6 @@
 
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by ConnectionCOM.rc
 //
 #define IDS_PROJNAME                    100
 #define IDR_SUMUP                       101

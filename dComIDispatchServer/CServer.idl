@@ -20,7 +20,7 @@ import "ocidl.idl";
 [
 	uuid(0B199966-76EA-479F-881D-ED7CB5F3457B),
 	version(1.0),
-	helpstring("ComIDispatch 1.0 Type Library")
+	helpstring("ComIDispatchServer 1.0 Type Library")
 ]
 library CONNECTIONCOMLib
 {

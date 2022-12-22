@@ -20,30 +20,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\bin\Win32\Release\ComIDispatchServer.dll" />
-    <None Include="res\TestClient.rc2" />
+    <None Include="res\Client.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CClientDlg.h" />
+    <ClInclude Include="MainApp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="TestClient.h" />
-    <ClInclude Include="TestClientDlg.h" />
     <ClInclude Include="TEventHandler.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CClientDlg.cpp" />
+    <ClCompile Include="MainApp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TestClient.cpp" />
-    <ClCompile Include="TestClientDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="TestClient.rc" />
+    <ResourceCompile Include="CClient.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\TestClient.ico" />
+    <Image Include="res\Client.ico" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

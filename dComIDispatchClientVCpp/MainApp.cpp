@@ -1,27 +1,27 @@
 #include "stdafx.h"
-#include "TestClient.h"
-#include "TestClientDlg.h"
+#include "MainApp.h"
+#include "CClientDlg.h"
 
-BEGIN_MESSAGE_MAP(CTestClientApp, CWinApp)
+BEGIN_MESSAGE_MAP(MainApp, CWinApp)
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
-CTestClientApp::CTestClientApp()
+MainApp::MainApp()
 {
 	// TODO: ここに構築コードを追加し、すべての重要な初期化を InitInstance に配置する
 }
 
 // 唯一無二のオブジェクト
-CTestClientApp theApp;
+MainApp theApp;
 
-BOOL CTestClientApp::InitInstance()
+BOOL MainApp::InitInstance()
 {
 	AfxEnableControlContainer();
 
 	// プログラムの最初に呼び出されることを確認
 	CoInitialize(NULL);
 
-	CTestClientDlg dlg;
+	CClientDlg dlg;
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
 	if (IDOK == nResponse)
@@ -37,7 +37,7 @@ BOOL CTestClientApp::InitInstance()
 	return FALSE;
 }
 
-int CTestClientApp::ExitInstance() 
+int MainApp::ExitInstance() 
 {
 	// TODO: ここに特殊なコードを追加するか、基本クラスを呼び出す
 

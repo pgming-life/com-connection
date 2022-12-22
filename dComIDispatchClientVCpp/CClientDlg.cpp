@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "TestClient.h"
-#include "TestClientDlg.h"
+#include "CClientDlg.h"
 
 class CAboutDlg : public CDialog
 {
@@ -27,28 +26,28 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
 	// No message handlers
 END_MESSAGE_MAP()
 
-CTestClientDlg::CTestClientDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CTestClientDlg::IDD, pParent)
+CClientDlg::CClientDlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CClientDlg::IDD, pParent)
 {
 	// Win32 では、LoadIcon は後続の DestroyIcon を必要としないことに注意
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CTestClientDlg::DoDataExchange(CDataExchange* pDX)
+void CClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	// 注: ClassWizard は DDX および DDV 呼び出しをここに追加する
 }
 
-BEGIN_MESSAGE_MAP(CTestClientDlg, CDialog)
+BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_DESTROY()
-	ON_BN_CLICKED(IDC_BUTTON_CALL_TEST_FUNCTION, OnButtonCallFunction)
+	ON_BN_CLICKED(IDC_BUTTON_CALL_FUNCTION, OnButtonCallFunction)
 END_MESSAGE_MAP()
 
-BOOL CTestClientDlg::OnInitDialog()
+BOOL CClientDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
@@ -81,12 +80,12 @@ BOOL CTestClientDlg::OnInitDialog()
 	m_spISumUp.CreateInstance(__uuidof(SumUp));
 
 	// ISumUpEventHandler オブジェクトをインスタンス化
-	m_pISumUpEventHandler = new ISumUpEventHandler(*this, m_spISumUp, &CTestClientDlg::OnSumUpInvoke);
+	m_pISumUpEventHandler = new ISumUpEventHandler(*this, m_spISumUp, &CClientDlg::OnSumUpInvoke);
 	
 	return TRUE;	// コントロールにフォーカスを設定しない限り TRUE を返す
 }
 
-void CTestClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if (IDM_ABOUTBOX == (nID & 0xFFF0))
 	{
@@ -101,7 +100,7 @@ void CTestClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
 
 // ダイアログに最小化ボタンを追加する場合、アイコンを描画するために以下のコードが必要になる
 // document/view モデルを使用する MFC アプリケーションの場合、これはフレームワークによって自動的に行われる
-void CTestClientDlg::OnPaint() 
+void CClientDlg::OnPaint() 
 {
 	if (IsIconic())
 	{
@@ -126,14 +125,13 @@ void CTestClientDlg::OnPaint()
 }
 
 // システムはこれを呼び出して、ユーザーが最小化されたウィンドウをドラッグしているときに表示するカーソルを取得
-HCURSOR CTestClientDlg::OnQueryDragIcon()
+HCURSOR CClientDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
 }
 
-// OnSumUpInvoke() は、ISumUp を実装する COM オブジェクトからイベントが発生したときに、TEventHandler ベースのクラス オブジェクトによって呼び出される
-HRESULT CTestClientDlg::OnSumUpInvoke
-(
+// OnSumUpInvoke() は、ISumUp を実装する COM オブジェクトからイベントが発生したときに、TEventHandler ベースのクラスオブジェクトによって呼び出される
+HRESULT CClientDlg::OnSumUpInvoke(
 	ISumUpEventHandler* pEventHandler,
 	DISPID dispidMember, 
 	REFIID riid,
@@ -142,10 +140,9 @@ HRESULT CTestClientDlg::OnSumUpInvoke
 	DISPPARAMS* pdispparams, 
 	VARIANT* pvarResult,
 	EXCEPINFO* pexcepinfo, 
-	UINT* puArgErr
-)
+	UINT* puArgErr)
 {
-	if (dispidMember == 0x01)  // Event1 event.
+	if (dispidMember == 0x01)	// Event1 event.
 	{
 		// 第１パラメータ : [in] int Result
 		VARIANT varResult;
@@ -163,7 +160,7 @@ HRESULT CTestClientDlg::OnSumUpInvoke
   return S_OK;
 }
 
-void CTestClientDlg::OnDestroy() 
+void CClientDlg::OnDestroy()
 {
 	CDialog::OnDestroy();
 	
@@ -179,7 +176,7 @@ void CTestClientDlg::OnDestroy()
 	}
 }
 
-void CTestClientDlg::OnButtonCallFunction() 
+void CClientDlg::OnButtonCallFunction() 
 {
 	// TODO: コントロール通知ハンドラ コードをここに追加
 	// ISumUp.ExecutionOver() を呼び出す
