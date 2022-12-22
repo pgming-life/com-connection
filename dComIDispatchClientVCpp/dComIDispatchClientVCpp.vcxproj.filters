@@ -10,7 +10,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="インターフェース">
-      <UniqueIdentifier>{3606bd2d-7067-4904-8be7-55fbe2d78096}</UniqueIdentifier>
+      <UniqueIdentifier>{26ca5ef7-0889-4742-b95d-67082e00e4b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

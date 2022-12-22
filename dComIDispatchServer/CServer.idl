@@ -1,0 +1,50 @@
+// CServer.idl : ComServer.dllのIDLソース
+//
+
+// このファイルはMIDLツールによって処理され、タイプライブラリ(ComServer.tlb)とマーシャリングコードを生成
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(8E396CC0-A266-481E-B6B4-0CB564DAA3BC),
+		dual,
+		helpstring("ISumUp Interface"),
+		pointer_default(unique)
+	]
+	interface ISumUp : IDispatch
+	{
+		[id(1), helpstring("method SumUp")] HRESULT SumUp([in] long lValue);
+	};
+
+[
+	uuid(0B199966-76EA-479F-881D-ED7CB5F3457B),
+	version(1.0),
+	helpstring("ComIDispatch 1.0 Type Library")
+]
+library CONNECTIONCOMLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(32F2B52C-1C07-43BC-879B-04C70A7FA148),
+		helpstring("_ISumUpEvents Interface")
+	]
+	dispinterface _ISumUpEvents
+	{
+		properties:
+		methods:
+		[id(1), helpstring("method Event1")] HRESULT Event1([in] long Result);
+	};
+
+	[
+		uuid(A17BC235-A924-4FFE-8D96-22068CEA9959),
+		helpstring("SumUp Class")
+	]
+	coclass SumUp
+	{
+		[default] interface ISumUp;
+		[default, source] dispinterface _ISumUpEvents;
+	};
+};

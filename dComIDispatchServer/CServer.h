@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0622 */
 /* at Tue Jan 19 12:14:07 2038
  */
-/* Compiler settings for EventFiringObject.idl:
+/* Compiler settings for CServer.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -35,8 +35,8 @@
 #include "ole2.h"
 #endif /*COM_NO_WINDOWS_H*/
 
-#ifndef __EventFiringObject_h__
-#define __EventFiringObject_h__
+#ifndef __CServer_h__
+#define __CServer_h__
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
@@ -44,30 +44,30 @@
 
 /* Forward Declarations */ 
 
-#ifndef __IEventFiringObject_FWD_DEFINED__
-#define __IEventFiringObject_FWD_DEFINED__
-typedef interface IEventFiringObject IEventFiringObject;
+#ifndef __ISumUp_FWD_DEFINED__
+#define __ISumUp_FWD_DEFINED__
+typedef interface ISumUp ISumUp;
 
-#endif 	/* __IEventFiringObject_FWD_DEFINED__ */
-
-
-#ifndef ___IEventFiringObjectEvents_FWD_DEFINED__
-#define ___IEventFiringObjectEvents_FWD_DEFINED__
-typedef interface _IEventFiringObjectEvents _IEventFiringObjectEvents;
-
-#endif 	/* ___IEventFiringObjectEvents_FWD_DEFINED__ */
+#endif 	/* __ISumUp_FWD_DEFINED__ */
 
 
-#ifndef __EventFiringObject_FWD_DEFINED__
-#define __EventFiringObject_FWD_DEFINED__
+#ifndef ___ISumUpEvents_FWD_DEFINED__
+#define ___ISumUpEvents_FWD_DEFINED__
+typedef interface _ISumUpEvents _ISumUpEvents;
+
+#endif 	/* ___ISumUpEvents_FWD_DEFINED__ */
+
+
+#ifndef __SumUp_FWD_DEFINED__
+#define __SumUp_FWD_DEFINED__
 
 #ifdef __cplusplus
-typedef class EventFiringObject EventFiringObject;
+typedef class SumUp SumUp;
 #else
-typedef struct EventFiringObject EventFiringObject;
+typedef struct SumUp SumUp;
 #endif /* __cplusplus */
 
-#endif 	/* __EventFiringObject_FWD_DEFINED__ */
+#endif 	/* __SumUp_FWD_DEFINED__ */
 
 
 /* header files for imported files */
@@ -79,22 +79,22 @@ extern "C"{
 #endif 
 
 
-#ifndef __IEventFiringObject_INTERFACE_DEFINED__
-#define __IEventFiringObject_INTERFACE_DEFINED__
+#ifndef __ISumUp_INTERFACE_DEFINED__
+#define __ISumUp_INTERFACE_DEFINED__
 
-/* interface IEventFiringObject */
+/* interface ISumUp */
 /* [unique][helpstring][dual][uuid][object] */ 
 
 
-EXTERN_C const IID IID_IEventFiringObject;
+EXTERN_C const IID IID_ISumUp;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
     MIDL_INTERFACE("8E396CC0-A266-481E-B6B4-0CB564DAA3BC")
-    IEventFiringObject : public IDispatch
+    ISumUp : public IDispatch
     {
     public:
-        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE TestFunction( 
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE SumUp( 
             /* [in] */ long lValue) = 0;
         
     };
@@ -102,34 +102,34 @@ EXTERN_C const IID IID_IEventFiringObject;
     
 #else 	/* C style interface */
 
-    typedef struct IEventFiringObjectVtbl
+    typedef struct ISumUpVtbl
     {
         BEGIN_INTERFACE
         
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IEventFiringObject * This,
+            ISumUp * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IEventFiringObject * This);
+            ISumUp * This);
         
         ULONG ( STDMETHODCALLTYPE *Release )( 
-            IEventFiringObject * This);
+            ISumUp * This);
         
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
-            IEventFiringObject * This,
+            ISumUp * This,
             /* [out] */ UINT *pctinfo);
         
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
-            IEventFiringObject * This,
+            ISumUp * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
-            IEventFiringObject * This,
+            ISumUp * This,
             /* [in] */ REFIID riid,
             /* [size_is][in] */ LPOLESTR *rgszNames,
             /* [range][in] */ UINT cNames,
@@ -137,7 +137,7 @@ EXTERN_C const IID IID_IEventFiringObject;
             /* [size_is][out] */ DISPID *rgDispId);
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
-            IEventFiringObject * This,
+            ISumUp * This,
             /* [annotation][in] */ 
             _In_  DISPID dispIdMember,
             /* [annotation][in] */ 
@@ -155,16 +155,16 @@ EXTERN_C const IID IID_IEventFiringObject;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
-        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *TestFunction )( 
-            IEventFiringObject * This,
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *SumUp )( 
+            ISumUp * This,
             /* [in] */ long lValue);
         
         END_INTERFACE
-    } IEventFiringObjectVtbl;
+    } ISumUpVtbl;
 
-    interface IEventFiringObject
+    interface ISumUp
     {
-        CONST_VTBL struct IEventFiringObjectVtbl *lpVtbl;
+        CONST_VTBL struct ISumUpVtbl *lpVtbl;
     };
 
     
@@ -172,31 +172,31 @@ EXTERN_C const IID IID_IEventFiringObject;
 #ifdef COBJMACROS
 
 
-#define IEventFiringObject_QueryInterface(This,riid,ppvObject)	\
+#define ISumUp_QueryInterface(This,riid,ppvObject)	\
     ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
 
-#define IEventFiringObject_AddRef(This)	\
+#define ISumUp_AddRef(This)	\
     ( (This)->lpVtbl -> AddRef(This) ) 
 
-#define IEventFiringObject_Release(This)	\
+#define ISumUp_Release(This)	\
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IEventFiringObject_GetTypeInfoCount(This,pctinfo)	\
+#define ISumUp_GetTypeInfoCount(This,pctinfo)	\
     ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
 
-#define IEventFiringObject_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+#define ISumUp_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
     ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
 
-#define IEventFiringObject_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+#define ISumUp_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
     ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
 
-#define IEventFiringObject_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+#define ISumUp_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
     ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
 
 
-#define IEventFiringObject_TestFunction(This,lValue)	\
-    ( (This)->lpVtbl -> TestFunction(This,lValue) ) 
+#define ISumUp_SumUp(This,lValue)	\
+    ( (This)->lpVtbl -> SumUp(This,lValue) ) 
 
 #endif /* COBJMACROS */
 
@@ -206,65 +206,65 @@ EXTERN_C const IID IID_IEventFiringObject;
 
 
 
-#endif 	/* __IEventFiringObject_INTERFACE_DEFINED__ */
+#endif 	/* __ISumUp_INTERFACE_DEFINED__ */
 
 
 
-#ifndef __EVENTFIRINGOBJECTLib_LIBRARY_DEFINED__
-#define __EVENTFIRINGOBJECTLib_LIBRARY_DEFINED__
+#ifndef __CONNECTIONCOMLib_LIBRARY_DEFINED__
+#define __CONNECTIONCOMLib_LIBRARY_DEFINED__
 
-/* library EVENTFIRINGOBJECTLib */
+/* library CONNECTIONCOMLib */
 /* [helpstring][version][uuid] */ 
 
 
-EXTERN_C const IID LIBID_EVENTFIRINGOBJECTLib;
+EXTERN_C const IID LIBID_CONNECTIONCOMLib;
 
-#ifndef ___IEventFiringObjectEvents_DISPINTERFACE_DEFINED__
-#define ___IEventFiringObjectEvents_DISPINTERFACE_DEFINED__
+#ifndef ___ISumUpEvents_DISPINTERFACE_DEFINED__
+#define ___ISumUpEvents_DISPINTERFACE_DEFINED__
 
-/* dispinterface _IEventFiringObjectEvents */
+/* dispinterface _ISumUpEvents */
 /* [helpstring][uuid] */ 
 
 
-EXTERN_C const IID DIID__IEventFiringObjectEvents;
+EXTERN_C const IID DIID__ISumUpEvents;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
 
     MIDL_INTERFACE("32F2B52C-1C07-43BC-879B-04C70A7FA148")
-    _IEventFiringObjectEvents : public IDispatch
+    _ISumUpEvents : public IDispatch
     {
     };
     
 #else 	/* C style interface */
 
-    typedef struct _IEventFiringObjectEventsVtbl
+    typedef struct _ISumUpEventsVtbl
     {
         BEGIN_INTERFACE
         
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            _IEventFiringObjectEvents * This,
+            _ISumUpEvents * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            _IEventFiringObjectEvents * This);
+            _ISumUpEvents * This);
         
         ULONG ( STDMETHODCALLTYPE *Release )( 
-            _IEventFiringObjectEvents * This);
+            _ISumUpEvents * This);
         
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
-            _IEventFiringObjectEvents * This,
+            _ISumUpEvents * This,
             /* [out] */ UINT *pctinfo);
         
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
-            _IEventFiringObjectEvents * This,
+            _ISumUpEvents * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
-            _IEventFiringObjectEvents * This,
+            _ISumUpEvents * This,
             /* [in] */ REFIID riid,
             /* [size_is][in] */ LPOLESTR *rgszNames,
             /* [range][in] */ UINT cNames,
@@ -272,7 +272,7 @@ EXTERN_C const IID DIID__IEventFiringObjectEvents;
             /* [size_is][out] */ DISPID *rgDispId);
         
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
-            _IEventFiringObjectEvents * This,
+            _ISumUpEvents * This,
             /* [annotation][in] */ 
             _In_  DISPID dispIdMember,
             /* [annotation][in] */ 
@@ -291,11 +291,11 @@ EXTERN_C const IID DIID__IEventFiringObjectEvents;
             _Out_opt_  UINT *puArgErr);
         
         END_INTERFACE
-    } _IEventFiringObjectEventsVtbl;
+    } _ISumUpEventsVtbl;
 
-    interface _IEventFiringObjectEvents
+    interface _ISumUpEvents
     {
-        CONST_VTBL struct _IEventFiringObjectEventsVtbl *lpVtbl;
+        CONST_VTBL struct _ISumUpEventsVtbl *lpVtbl;
     };
 
     
@@ -303,26 +303,26 @@ EXTERN_C const IID DIID__IEventFiringObjectEvents;
 #ifdef COBJMACROS
 
 
-#define _IEventFiringObjectEvents_QueryInterface(This,riid,ppvObject)	\
+#define _ISumUpEvents_QueryInterface(This,riid,ppvObject)	\
     ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
 
-#define _IEventFiringObjectEvents_AddRef(This)	\
+#define _ISumUpEvents_AddRef(This)	\
     ( (This)->lpVtbl -> AddRef(This) ) 
 
-#define _IEventFiringObjectEvents_Release(This)	\
+#define _ISumUpEvents_Release(This)	\
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define _IEventFiringObjectEvents_GetTypeInfoCount(This,pctinfo)	\
+#define _ISumUpEvents_GetTypeInfoCount(This,pctinfo)	\
     ( (This)->lpVtbl -> GetTypeInfoCount(This,pctinfo) ) 
 
-#define _IEventFiringObjectEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
+#define _ISumUpEvents_GetTypeInfo(This,iTInfo,lcid,ppTInfo)	\
     ( (This)->lpVtbl -> GetTypeInfo(This,iTInfo,lcid,ppTInfo) ) 
 
-#define _IEventFiringObjectEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
+#define _ISumUpEvents_GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId)	\
     ( (This)->lpVtbl -> GetIDsOfNames(This,riid,rgszNames,cNames,lcid,rgDispId) ) 
 
-#define _IEventFiringObjectEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
+#define _ISumUpEvents_Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr)	\
     ( (This)->lpVtbl -> Invoke(This,dispIdMember,riid,lcid,wFlags,pDispParams,pVarResult,pExcepInfo,puArgErr) ) 
 
 #endif /* COBJMACROS */
@@ -331,17 +331,17 @@ EXTERN_C const IID DIID__IEventFiringObjectEvents;
 #endif 	/* C style interface */
 
 
-#endif 	/* ___IEventFiringObjectEvents_DISPINTERFACE_DEFINED__ */
+#endif 	/* ___ISumUpEvents_DISPINTERFACE_DEFINED__ */
 
 
-EXTERN_C const CLSID CLSID_EventFiringObject;
+EXTERN_C const CLSID CLSID_SumUp;
 
 #ifdef __cplusplus
 
 class DECLSPEC_UUID("A17BC235-A924-4FFE-8D96-22068CEA9959")
-EventFiringObject;
+SumUp;
 #endif
-#endif /* __EVENTFIRINGOBJECTLib_LIBRARY_DEFINED__ */
+#endif /* __CONNECTIONCOMLib_LIBRARY_DEFINED__ */
 
 /* Additional Prototypes for ALL interfaces */
 

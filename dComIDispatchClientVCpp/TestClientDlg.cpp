@@ -1,107 +1,65 @@
-// TestClientDlg.cpp : implementation file
-//
-
 #include "stdafx.h"
 #include "TestClient.h"
 #include "TestClientDlg.h"
-
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
-#endif
-
-/////////////////////////////////////////////////////////////////////////////
-// CAboutDlg dialog used for App About
 
 class CAboutDlg : public CDialog
 {
 public:
 	CAboutDlg();
-
-// Dialog Data
-	//{{AFX_DATA(CAboutDlg)
 	enum { IDD = IDD_ABOUTBOX };
-	//}}AFX_DATA
 
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CAboutDlg)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	//}}AFX_VIRTUAL
-
-// Implementation
 protected:
-	//{{AFX_MSG(CAboutDlg)
-	//}}AFX_MSG
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	DECLARE_MESSAGE_MAP()
 };
 
 CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
 {
-	//{{AFX_DATA_INIT(CAboutDlg)
-	//}}AFX_DATA_INIT
+	
 }
 
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CAboutDlg)
-	//}}AFX_DATA_MAP
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
-	//{{AFX_MSG_MAP(CAboutDlg)
-		// No message handlers
-	//}}AFX_MSG_MAP
+	// No message handlers
 END_MESSAGE_MAP()
-
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientDlg dialog
 
 CTestClientDlg::CTestClientDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CTestClientDlg::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CTestClientDlg)
-		// NOTE: the ClassWizard will add member initialization here
-	//}}AFX_DATA_INIT
-	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
+	// Win32 では、LoadIcon は後続の DestroyIcon を必要としないことに注意
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
 void CTestClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CTestClientDlg)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
-	//}}AFX_DATA_MAP
+	// 注: ClassWizard は DDX および DDV 呼び出しをここに追加する
 }
 
 BEGIN_MESSAGE_MAP(CTestClientDlg, CDialog)
-	//{{AFX_MSG_MAP(CTestClientDlg)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_WM_DESTROY()
-	ON_BN_CLICKED(IDC_BUTTON_CALL_TEST_FUNCTION, OnButtonCallTestFunction)
-	//}}AFX_MSG_MAP
+	ON_BN_CLICKED(IDC_BUTTON_CALL_TEST_FUNCTION, OnButtonCallFunction)
 END_MESSAGE_MAP()
-
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientDlg message handlers
 
 BOOL CTestClientDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	// Add "About..." menu item to system menu.
+	// システム メニューに「About...」メニュー項目を追加
 
-	// IDM_ABOUTBOX must be in the system command range.
+	// IDM_ABOUTBOX は、システムコマンドの範囲内にある必要がある
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
 	CMenu* pSysMenu = GetSystemMenu(FALSE);
-	if (pSysMenu != NULL)
+	if (NULL != pSysMenu)
 	{
 		CString strAboutMenu;
 		strAboutMenu.LoadString(IDS_ABOUTBOX);
@@ -112,25 +70,25 @@ BOOL CTestClientDlg::OnInitDialog()
 		}
 	}
 
-	// Set the icon for this dialog.  The framework does this automatically
-	//  when the application's main window is not a dialog
-	SetIcon(m_hIcon, TRUE);			// Set big icon
-	SetIcon(m_hIcon, FALSE);		// Set small icon
+	// このダイアログのアイコンを設定
+	// アプリケーションのメインウィンドウがダイアログでない場合、フレームワークはこれを自動的に行う
+	SetIcon(m_hIcon, TRUE);		// Set big icon
+	SetIcon(m_hIcon, FALSE);	// Set small icon
 	
-	// TODO: Add extra initialization here
+	// TODO: ここに初期化を追加
 
-	// ***** Create an instance of an object which implements IEventFiringObject. *****
-	m_spIEventFiringObject.CreateInstance(__uuidof(EventFiringObject));
+	// ISumUp を実装するオブジェクトのインスタンスを作成
+	m_spISumUp.CreateInstance(__uuidof(SumUp));
 
-	// ***** Instantiate an IEventFiringObjectEventHandler object. *****
-	m_pIEventFiringObjectEventHandler = new IEventFiringObjectEventHandler(*this, m_spIEventFiringObject, &CTestClientDlg::OnEventFiringObjectInvoke);
+	// ISumUpEventHandler オブジェクトをインスタンス化
+	m_pISumUpEventHandler = new ISumUpEventHandler(*this, m_spISumUp, &CTestClientDlg::OnSumUpInvoke);
 	
-	return TRUE;  // return TRUE  unless you set the focus to a control
+	return TRUE;	// コントロールにフォーカスを設定しない限り TRUE を返す
 }
 
 void CTestClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
-	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
+	if (IDM_ABOUTBOX == (nID & 0xFFF0))
 	{
 		CAboutDlg dlgAbout;
 		dlgAbout.DoModal();
@@ -141,19 +99,16 @@ void CTestClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-// If you add a minimize button to your dialog, you will need the code below
-//  to draw the icon.  For MFC applications using the document/view model,
-//  this is automatically done for you by the framework.
-
+// ダイアログに最小化ボタンを追加する場合、アイコンを描画するために以下のコードが必要になる
+// document/view モデルを使用する MFC アプリケーションの場合、これはフレームワークによって自動的に行われる
 void CTestClientDlg::OnPaint() 
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // device context for painting
-
+		CPaintDC dc(this);	// ペイントのデバイスコンテキスト
 		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);
 
-		// Center icon in client rectangle
+		// クライアントの四角形の中央にアイコンを配置
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
@@ -161,7 +116,7 @@ void CTestClientDlg::OnPaint()
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
 
-		// Draw the icon
+		// アイコンを描画
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -170,51 +125,40 @@ void CTestClientDlg::OnPaint()
 	}
 }
 
-// The system calls this to obtain the cursor to display while the user drags
-//  the minimized window.
+// システムはこれを呼び出して、ユーザーが最小化されたウィンドウをドラッグしているときに表示するカーソルを取得
 HCURSOR CTestClientDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
 }
 
-
-
-
-
-// ***** OnEventFiringObjectInvoke() is inoked by the TEventHandler based class object *****
-// ***** when an event is fired from the COM object that implements IEventFiringObject. *****
-HRESULT CTestClientDlg::OnEventFiringObjectInvoke
+// OnSumUpInvoke() は、ISumUp を実装する COM オブジェクトからイベントが発生したときに、TEventHandler ベースのクラス オブジェクトによって呼び出される
+HRESULT CTestClientDlg::OnSumUpInvoke
 (
-  IEventFiringObjectEventHandler* pEventHandler,
-  DISPID dispidMember, 
-  REFIID riid,
-  LCID lcid, 
-  WORD wFlags, 
-  DISPPARAMS* pdispparams, 
-  VARIANT* pvarResult,
-  EXCEPINFO* pexcepinfo, 
-  UINT* puArgErr
+	ISumUpEventHandler* pEventHandler,
+	DISPID dispidMember, 
+	REFIID riid,
+	LCID lcid, 
+	WORD wFlags, 
+	DISPPARAMS* pdispparams, 
+	VARIANT* pvarResult,
+	EXCEPINFO* pexcepinfo, 
+	UINT* puArgErr
 )
 {
-  if (dispidMember == 0x01)  // Event1 event.
-  {
-	// 1st param : [in] long lValue.
-	VARIANT	varlValue;
-	long	lValue = 0;
+	if (dispidMember == 0x01)  // Event1 event.
+	{
+		// 第１パラメータ : [in] int Result
+		VARIANT varResult;
+		int	Result = 0;
+		VariantInit(&varResult);
+		VariantClear(&varResult);
+		varResult = (pdispparams -> rgvarg)[0];
+		Result = V_I4(&varResult);
 
-	VariantInit(&varlValue);
-	VariantClear(&varlValue);
-
-	varlValue = (pdispparams -> rgvarg)[0];
-
-	lValue = V_I4(&varlValue);
-
-	TCHAR szMessage[256];
-
-	sprintf_s (szMessage, "Event 1 is fired with value : %d.", lValue);
-
-	::MessageBox (NULL, szMessage, "Event", MB_OK);
-  }
+		TCHAR szMessage[256];
+		sprintf_s (szMessage, "SumUp is fired with value : %d.", Result);
+		::MessageBox (NULL, szMessage, "Event", MB_OK);
+	}
 
   return S_OK;
 }
@@ -223,25 +167,22 @@ void CTestClientDlg::OnDestroy()
 {
 	CDialog::OnDestroy();
 	
-	// TODO: Add your message handler code here
+	// TODO: ここにメッセージ ハンドラー コードを追加
 
-	// ***** When the program is terminating, make sure that we instruct our *****
-	// ***** Event Handler to disconnect from the connection point of the *****
-	// ***** object which implemented the IEventFiringObject interface. *****
-	// ***** We also needs to Release() it (instead of deleting it). *****
-	if (m_pIEventFiringObjectEventHandler)
+	// プログラムが終了するとき、ISumUp インターフェイスを実装したオブジェクトの接続ポイントから切断するようにイベントハンドラーに指示する
+	// また、(削除する代わりに) Release() する必要がある
+	if (m_pISumUpEventHandler)
 	{
-	  m_pIEventFiringObjectEventHandler -> ShutdownConnectionPoint();
-	  m_pIEventFiringObjectEventHandler -> Release();
-	  m_pIEventFiringObjectEventHandler = NULL;
+		m_pISumUpEventHandler -> ShutdownConnectionPoint();
+		m_pISumUpEventHandler -> Release();
+		m_pISumUpEventHandler = NULL;
 	}
 }
 
-void CTestClientDlg::OnButtonCallTestFunction() 
+void CTestClientDlg::OnButtonCallFunction() 
 {
-	// TODO: Add your control notification handler code here
-	// ***** Call the IEventFiringObject.TestFunction(). *****
-	// ***** This will cause the object which implements *****
-	// ***** IEventFiringObject to fire Event1. *****
-	m_spIEventFiringObject -> TestFunction(456);
+	// TODO: コントロール通知ハンドラ コードをここに追加
+	// ISumUp.ExecutionOver() を呼び出す
+	// これにより、ISumUp を実装するオブジェクトが Event1 を起動する
+	m_spISumUp->SumUp(123);
 }

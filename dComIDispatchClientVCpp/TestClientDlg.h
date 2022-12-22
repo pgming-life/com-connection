@@ -1,66 +1,37 @@
-// TestClientDlg.h : header file
-//
-
-#if !defined(AFX_TESTCLIENTDLG_H__69917168_D633_44C9_B326_066B01FC7071__INCLUDED_)
-#define AFX_TESTCLIENTDLG_H__69917168_D633_44C9_B326_066B01FC7071__INCLUDED_
-
-#if _MSC_VER > 1000
-#pragma once
-#endif // _MSC_VER > 1000
-
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientDlg dialog
-
-// ***** Make a forward declaration so that our TEventHandler template class can use it. *****
 class CTestClientDlg;
 
-// ***** Declare an event handling class using the TEventHandler template. *****
-typedef TEventHandler<CTestClientDlg, IEventFiringObject, _IEventFiringObjectEvents> IEventFiringObjectEventHandler;
+// TEventHandler テンプレートを使用してイベント処理クラスを宣言
+typedef TEventHandler<CTestClientDlg, ISumUp, _ISumUpEvents> ISumUpEventHandler;
 
 class CTestClientDlg : public CDialog
 {
-// Construction
 public:
-	CTestClientDlg(CWnd* pParent = NULL);	// standard constructor
-
-// Dialog Data
-	//{{AFX_DATA(CTestClientDlg)
+	CTestClientDlg(CWnd* pParent = NULL);
 	enum { IDD = IDD_TESTCLIENT_DIALOG };
-		// NOTE: the ClassWizard will add data members here
-	//}}AFX_DATA
 
-	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CTestClientDlg)
-	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
-	//}}AFX_VIRTUAL
-
-// Implementation
+	// ClassWizard によって生成された仮想関数のオーバーライド
 protected:
-	HICON							m_hIcon;
+	HICON m_hIcon;
 
-	// ***** Declare an instance of a IEventFiringObject smart pointer. *****
-	IEventFiringObjectPtr			m_spIEventFiringObject;  
+	// スマートポインタのインスタンスを宣言
+	ISumUpPtr m_spISumUp;
 
-	// ***** Declare a pointer to a TEventHandler class which is specially tailored *****
-	// ***** to receiving events from the _IEventFiringObjectEvents events of an *****
-	// ***** IEventFiringObject object. *****
-	IEventFiringObjectEventHandler* m_pIEventFiringObjectEventHandler;
+	// ISumUp オブジェクトの _ISumUpEvents イベントからイベントを受け取るように特別に調整された TEventHandler クラスへのポインタを宣言
+	ISumUpEventHandler* m_pISumUpEventHandler;
 
-	// Generated message map functions
-	//{{AFX_MSG(CTestClientDlg)
+	// 生成されたメッセージ マップ関数
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV support
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnDestroy();
-	afx_msg void OnButtonCallTestFunction();
-	//}}AFX_MSG
+	afx_msg void OnButtonCallFunction();
 	DECLARE_MESSAGE_MAP()
 
-	HRESULT OnEventFiringObjectInvoke
+	HRESULT OnSumUpInvoke
 	(
-	  IEventFiringObjectEventHandler* pEventHandler,
+	  ISumUpEventHandler* pEventHandler,
 	  DISPID dispidMember, 
 	  REFIID riid,
 	  LCID lcid, 
@@ -70,10 +41,4 @@ protected:
 	  EXCEPINFO* pexcepinfo, 
 	  UINT* puArgErr
 	);
-
 };
-
-//{{AFX_INSERT_LOCATION}}
-// Microsoft Visual C++ will insert additional declarations immediately before the previous line.
-
-#endif // !defined(AFX_TESTCLIENTDLG_H__69917168_D633_44C9_B326_066B01FC7071__INCLUDED_)

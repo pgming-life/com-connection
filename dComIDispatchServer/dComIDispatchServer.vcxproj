@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EventFiringObject.cpp" />
-    <ClCompile Include="EventFiringObject_Impl.cpp" />
+    <ClCompile Include="CServer.cpp" />
+    <ClCompile Include="SumUp.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -29,24 +29,24 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="EventFiringObject.def" />
-    <None Include="EventFiringObject.rgs" />
+    <None Include="CServer.def" />
+    <None Include="SumUp.rgs" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="EventFiringObject.idl" />
+    <Midl Include="CServer.idl" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EventFiringObject.h" />
-    <ClInclude Include="EventFiringObjectCP.h" />
-    <ClInclude Include="EventFiringObject_Impl.h" />
+    <ClInclude Include="CServer.h" />
+    <ClInclude Include="CServerCP.h" />
+    <ClInclude Include="SumUp.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EventFiringObject.rc" />
+    <ResourceCompile Include="CServer.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D02A47BF-E0A3-47D3-ABD8-21033D000DD4}</ProjectGuid>
+    <ProjectGuid>{0A532FED-182F-4CB3-8380-9F460F383A90}</ProjectGuid>
     <RootNamespace>POSKeyboard</RootNamespace>
     <Keyword>AtlProj</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
@@ -134,10 +134,10 @@
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(SolutionDir)bin\$(Platform)\$(Configuration)\ComIDispatchServer.tlb</TypeLibraryName>
-      <HeaderFileName>EventFiringObject.h</HeaderFileName>
+      <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName />
-      <InterfaceIdentifierFileName>EventFiringObject_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>EventFiringObject_p.c</ProxyFileName>
+      <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>CServer_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -165,7 +165,7 @@
       <OutputFile>$(SolutionDir)bin\$(Platform)\$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\EventFiringObject.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\CServer.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -190,11 +190,11 @@
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(SolutionDir)bin\$(Platform)\$(Configuration)\ComIDispatchServer.tlb</TypeLibraryName>
-      <HeaderFileName>EventFiringObject.h</HeaderFileName>
+      <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName>
       </DllDataFileName>
-      <InterfaceIdentifierFileName>EventFiringObject_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>EventFiringObject_p.c</ProxyFileName>
+      <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>CServer_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -223,7 +223,7 @@
       <OutputFile>$(SolutionDir)bin\$(Platform)\$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\EventFiringObject.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\CServer.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -249,10 +249,10 @@
       <TargetEnvironment>Win32</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(SolutionDir)bin\$(Platform)\$(Configuration)\ComIDispatchServer.tlb</TypeLibraryName>
-      <HeaderFileName>EventFiringObject.h</HeaderFileName>
+      <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName />
-      <InterfaceIdentifierFileName>EventFiringObject_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>EventFiringObject_p.c</ProxyFileName>
+      <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>CServer_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -281,7 +281,7 @@
       <OutputFile>$(SolutionDir)bin\$(Platform)\$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\EventFiringObject.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\CServer.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>
@@ -308,11 +308,11 @@
       <TargetEnvironment>X64</TargetEnvironment>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(SolutionDir)bin\$(Platform)\$(Configuration)\ComIDispatchServer.tlb</TypeLibraryName>
-      <HeaderFileName>EventFiringObject.h</HeaderFileName>
+      <HeaderFileName>CServer.h</HeaderFileName>
       <DllDataFileName>
       </DllDataFileName>
-      <InterfaceIdentifierFileName>EventFiringObject_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>EventFiringObject_p.c</ProxyFileName>
+      <InterfaceIdentifierFileName>CServer_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>CServer_p.c</ProxyFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
     </Midl>
     <ClCompile>
@@ -342,7 +342,7 @@
       <OutputFile>$(SolutionDir)bin\$(Platform)\$(Configuration)\$(TargetName)$(TargetExt)</OutputFile>
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>.\EventFiringObject.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\CServer.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>Windows</SubSystem>

@@ -14,10 +14,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EventFiringObject.cpp">
+    <ClCompile Include="CServer.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="EventFiringObject_Impl.cpp">
+    <ClCompile Include="SumUp.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
@@ -25,23 +25,23 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="EventFiringObject.def">
+    <None Include="CServer.def">
       <Filter>ソース ファイル</Filter>
     </None>
-    <None Include="EventFiringObject.rgs">
+    <None Include="SumUp.rgs">
       <Filter>リソース ファイル</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="EventFiringObject.idl">
+    <Midl Include="CServer.idl">
       <Filter>ソース ファイル</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EventFiringObject_Impl.h">
+    <ClInclude Include="SumUp.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="EventFiringObjectCP.h">
+    <ClInclude Include="CServerCP.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -50,12 +50,12 @@
     <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="EventFiringObject.h">
+    <ClInclude Include="CServer.h">
       <Filter>生成されたファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="EventFiringObject.rc">
+    <ResourceCompile Include="CServer.rc">
       <Filter>リソース ファイル</Filter>
     </ResourceCompile>
   </ItemGroup>

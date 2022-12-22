@@ -19,11 +19,13 @@
 extern "C"   {
 #endif
 
+EXTERN_PROXY_FILE( CServer )
 EXTERN_PROXY_FILE( EventFiringObject )
 
 
 PROXYFILE_LIST_START
 /* Start of list */
+  REFERENCE_PROXY_FILE( CServer ),
   REFERENCE_PROXY_FILE( EventFiringObject ),
 /* End of list */
 PROXYFILE_LIST_END

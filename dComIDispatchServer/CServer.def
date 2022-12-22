@@ -1,4 +1,4 @@
-; EventFiringObject.def : Declares the module parameters.
+; CServer.def : モジュールのパラメータを宣言
 
 LIBRARY      "ComIDispatchServer.DLL"
 

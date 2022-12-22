@@ -6,7 +6,7 @@
  /* File created by MIDL compiler version 8.01.0622 */
 /* at Tue Jan 19 12:14:07 2038
  */
-/* Compiler settings for EventFiringObject.idl:
+/* Compiler settings for CServer.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
     protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
@@ -46,7 +46,7 @@
 #endif /* __RPCPROXY_H_VERSION__ */
 
 
-#include "EventFiringObject.h"
+#include "CServer.h"
 
 #define TYPE_FORMAT_STRING_SIZE   3                                 
 #define PROC_FORMAT_STRING_SIZE   37                                
@@ -54,39 +54,39 @@
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
 
-typedef struct _EventFiringObject_MIDL_TYPE_FORMAT_STRING
+typedef struct _CServer_MIDL_TYPE_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ TYPE_FORMAT_STRING_SIZE ];
-    } EventFiringObject_MIDL_TYPE_FORMAT_STRING;
+    } CServer_MIDL_TYPE_FORMAT_STRING;
 
-typedef struct _EventFiringObject_MIDL_PROC_FORMAT_STRING
+typedef struct _CServer_MIDL_PROC_FORMAT_STRING
     {
     short          Pad;
     unsigned char  Format[ PROC_FORMAT_STRING_SIZE ];
-    } EventFiringObject_MIDL_PROC_FORMAT_STRING;
+    } CServer_MIDL_PROC_FORMAT_STRING;
 
-typedef struct _EventFiringObject_MIDL_EXPR_FORMAT_STRING
+typedef struct _CServer_MIDL_EXPR_FORMAT_STRING
     {
     long          Pad;
     unsigned char  Format[ EXPR_FORMAT_STRING_SIZE ];
-    } EventFiringObject_MIDL_EXPR_FORMAT_STRING;
+    } CServer_MIDL_EXPR_FORMAT_STRING;
 
 
 static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
 {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}};
 
 
-extern const EventFiringObject_MIDL_TYPE_FORMAT_STRING EventFiringObject__MIDL_TypeFormatString;
-extern const EventFiringObject_MIDL_PROC_FORMAT_STRING EventFiringObject__MIDL_ProcFormatString;
-extern const EventFiringObject_MIDL_EXPR_FORMAT_STRING EventFiringObject__MIDL_ExprFormatString;
+extern const CServer_MIDL_TYPE_FORMAT_STRING CServer__MIDL_TypeFormatString;
+extern const CServer_MIDL_PROC_FORMAT_STRING CServer__MIDL_ProcFormatString;
+extern const CServer_MIDL_EXPR_FORMAT_STRING CServer__MIDL_ExprFormatString;
 
 
 extern const MIDL_STUB_DESC Object_StubDesc;
 
 
-extern const MIDL_SERVER_INFO IEventFiringObject_ServerInfo;
-extern const MIDL_STUBLESS_PROXY_INFO IEventFiringObject_ProxyInfo;
+extern const MIDL_SERVER_INFO ISumUp_ServerInfo;
+extern const MIDL_STUBLESS_PROXY_INFO ISumUp_ProxyInfo;
 
 
 
@@ -101,12 +101,12 @@ extern const MIDL_STUBLESS_PROXY_INFO IEventFiringObject_ProxyInfo;
 #endif
 
 
-static const EventFiringObject_MIDL_PROC_FORMAT_STRING EventFiringObject__MIDL_ProcFormatString =
+static const CServer_MIDL_PROC_FORMAT_STRING CServer__MIDL_ProcFormatString =
     {
         0,
         {
 
-	/* Procedure TestFunction */
+	/* Procedure SumUp */
 
 			0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
@@ -141,7 +141,7 @@ static const EventFiringObject_MIDL_PROC_FORMAT_STRING EventFiringObject__MIDL_P
         }
     };
 
-static const EventFiringObject_MIDL_TYPE_FORMAT_STRING EventFiringObject__MIDL_TypeFormatString =
+static const CServer_MIDL_TYPE_FORMAT_STRING CServer__MIDL_TypeFormatString =
     {
         0,
         {
@@ -160,11 +160,11 @@ static const EventFiringObject_MIDL_TYPE_FORMAT_STRING EventFiringObject__MIDL_T
    GUID={0x00020400,0x0000,0x0000,{0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x46}} */
 
 
-/* Object interface: IEventFiringObject, ver. 0.0,
+/* Object interface: ISumUp, ver. 0.0,
    GUID={0x8E396CC0,0xA266,0x481E,{0xB6,0xB4,0x0C,0xB5,0x64,0xDA,0xA3,0xBC}} */
 
 #pragma code_seg(".orpc")
-static const unsigned short IEventFiringObject_FormatStringOffsetTable[] =
+static const unsigned short ISumUp_FormatStringOffsetTable[] =
     {
     (unsigned short) -1,
     (unsigned short) -1,
@@ -173,31 +173,31 @@ static const unsigned short IEventFiringObject_FormatStringOffsetTable[] =
     0
     };
 
-static const MIDL_STUBLESS_PROXY_INFO IEventFiringObject_ProxyInfo =
+static const MIDL_STUBLESS_PROXY_INFO ISumUp_ProxyInfo =
     {
     &Object_StubDesc,
-    EventFiringObject__MIDL_ProcFormatString.Format,
-    &IEventFiringObject_FormatStringOffsetTable[-3],
+    CServer__MIDL_ProcFormatString.Format,
+    &ISumUp_FormatStringOffsetTable[-3],
     0,
     0,
     0
     };
 
 
-static const MIDL_SERVER_INFO IEventFiringObject_ServerInfo = 
+static const MIDL_SERVER_INFO ISumUp_ServerInfo = 
     {
     &Object_StubDesc,
     0,
-    EventFiringObject__MIDL_ProcFormatString.Format,
-    &IEventFiringObject_FormatStringOffsetTable[-3],
+    CServer__MIDL_ProcFormatString.Format,
+    &ISumUp_FormatStringOffsetTable[-3],
     0,
     0,
     0,
     0};
-CINTERFACE_PROXY_VTABLE(8) _IEventFiringObjectProxyVtbl = 
+CINTERFACE_PROXY_VTABLE(8) _ISumUpProxyVtbl = 
 {
-    &IEventFiringObject_ProxyInfo,
-    &IID_IEventFiringObject,
+    &ISumUp_ProxyInfo,
+    &IID_ISumUp,
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
@@ -205,11 +205,11 @@ CINTERFACE_PROXY_VTABLE(8) _IEventFiringObjectProxyVtbl =
     0 /* IDispatch::GetTypeInfo */ ,
     0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
-    (void *) (INT_PTR) -1 /* IEventFiringObject::TestFunction */
+    (void *) (INT_PTR) -1 /* ISumUp::SumUp */
 };
 
 
-static const PRPC_STUB_FUNCTION IEventFiringObject_table[] =
+static const PRPC_STUB_FUNCTION ISumUp_table[] =
 {
     STUB_FORWARDING_FUNCTION,
     STUB_FORWARDING_FUNCTION,
@@ -218,12 +218,12 @@ static const PRPC_STUB_FUNCTION IEventFiringObject_table[] =
     NdrStubCall2
 };
 
-CInterfaceStubVtbl _IEventFiringObjectStubVtbl =
+CInterfaceStubVtbl _ISumUpStubVtbl =
 {
-    &IID_IEventFiringObject,
-    &IEventFiringObject_ServerInfo,
+    &IID_ISumUp,
+    &ISumUp_ServerInfo,
     8,
-    &IEventFiringObject_table[-3],
+    &ISumUp_table[-3],
     CStdStubBuffer_DELEGATING_METHODS
 };
 
@@ -237,7 +237,7 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0,
     0,
     0,
-    EventFiringObject__MIDL_TypeFormatString.Format,
+    CServer__MIDL_TypeFormatString.Format,
     1, /* -error bounds_check flag */
     0x60001, /* Ndr library version */
     0,
@@ -251,37 +251,37 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0
     };
 
-const CInterfaceProxyVtbl * const _EventFiringObject_ProxyVtblList[] = 
+const CInterfaceProxyVtbl * const _CServer_ProxyVtblList[] = 
 {
-    ( CInterfaceProxyVtbl *) &_IEventFiringObjectProxyVtbl,
+    ( CInterfaceProxyVtbl *) &_ISumUpProxyVtbl,
     0
 };
 
-const CInterfaceStubVtbl * const _EventFiringObject_StubVtblList[] = 
+const CInterfaceStubVtbl * const _CServer_StubVtblList[] = 
 {
-    ( CInterfaceStubVtbl *) &_IEventFiringObjectStubVtbl,
+    ( CInterfaceStubVtbl *) &_ISumUpStubVtbl,
     0
 };
 
-PCInterfaceName const _EventFiringObject_InterfaceNamesList[] = 
+PCInterfaceName const _CServer_InterfaceNamesList[] = 
 {
-    "IEventFiringObject",
+    "ISumUp",
     0
 };
 
-const IID *  const _EventFiringObject_BaseIIDList[] = 
+const IID *  const _CServer_BaseIIDList[] = 
 {
     &IID_IDispatch,
     0
 };
 
 
-#define _EventFiringObject_CHECK_IID(n)	IID_GENERIC_CHECK_IID( _EventFiringObject, pIID, n)
+#define _CServer_CHECK_IID(n)	IID_GENERIC_CHECK_IID( _CServer, pIID, n)
 
-int __stdcall _EventFiringObject_IID_Lookup( const IID * pIID, int * pIndex )
+int __stdcall _CServer_IID_Lookup( const IID * pIID, int * pIndex )
 {
     
-    if(!_EventFiringObject_CHECK_IID(0))
+    if(!_CServer_CHECK_IID(0))
         {
         *pIndex = 0;
         return 1;
@@ -290,13 +290,13 @@ int __stdcall _EventFiringObject_IID_Lookup( const IID * pIID, int * pIndex )
     return 0;
 }
 
-const ExtendedProxyFileInfo EventFiringObject_ProxyFileInfo = 
+const ExtendedProxyFileInfo CServer_ProxyFileInfo = 
 {
-    (PCInterfaceProxyVtblList *) & _EventFiringObject_ProxyVtblList,
-    (PCInterfaceStubVtblList *) & _EventFiringObject_StubVtblList,
-    (const PCInterfaceName * ) & _EventFiringObject_InterfaceNamesList,
-    (const IID ** ) & _EventFiringObject_BaseIIDList,
-    & _EventFiringObject_IID_Lookup, 
+    (PCInterfaceProxyVtblList *) & _CServer_ProxyVtblList,
+    (PCInterfaceStubVtblList *) & _CServer_StubVtblList,
+    (const PCInterfaceName * ) & _CServer_InterfaceNamesList,
+    (const IID ** ) & _CServer_BaseIIDList,
+    & _CServer_IID_Lookup, 
     1,
     2,
     0, /* table of [async_uuid] interfaces */

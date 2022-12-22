@@ -1,0 +1,26 @@
+HKCR
+{
+	ComIDispatchServer.SumUp.1 = s 'SumUp Class'
+	{
+		CLSID = s '{A17BC235-A924-4FFE-8D96-22068CEA9959}'
+	}
+	ComIDispatchServer.SumUp = s 'SumUp Class'
+	{
+		CLSID = s '{A17BC235-A924-4FFE-8D96-22068CEA9959}'
+		CurVer = s 'ComIDispatchServer.SumUp.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A17BC235-A924-4FFE-8D96-22068CEA9959} = s 'SumUp Class'
+		{
+			ProgID = s 'ComIDispatchServer.SumUp.1'
+			VersionIndependentProgID = s 'ComIDispatchServer.SumUp'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			'TypeLib' = s '{0B199966-76EA-479F-881D-ED7CB5F3457B}'
+		}
+	}
+}

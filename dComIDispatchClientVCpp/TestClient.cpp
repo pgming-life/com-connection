@@ -1,86 +1,47 @@
-// TestClient.cpp : Defines the class behaviors for the application.
-//
-
 #include "stdafx.h"
 #include "TestClient.h"
 #include "TestClientDlg.h"
 
-#ifdef _DEBUG
-#define new DEBUG_NEW
-#undef THIS_FILE
-static char THIS_FILE[] = __FILE__;
-#endif
-
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientApp
-
 BEGIN_MESSAGE_MAP(CTestClientApp, CWinApp)
-	//{{AFX_MSG_MAP(CTestClientApp)
-		// NOTE - the ClassWizard will add and remove mapping macros here.
-		//    DO NOT EDIT what you see in these blocks of generated code!
-	//}}AFX_MSG
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientApp construction
-
 CTestClientApp::CTestClientApp()
 {
-	// TODO: add construction code here,
-	// Place all significant initialization in InitInstance
+	// TODO: ここに構築コードを追加し、すべての重要な初期化を InitInstance に配置する
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// The one and only CTestClientApp object
-
+// 唯一無二のオブジェクト
 CTestClientApp theApp;
-
-/////////////////////////////////////////////////////////////////////////////
-// CTestClientApp initialization
 
 BOOL CTestClientApp::InitInstance()
 {
 	AfxEnableControlContainer();
 
-	// Standard initialization
-	// If you are not using these features and wish to reduce the size
-	//  of your final executable, you should remove from the following
-	//  the specific initialization routines you do not need.
-/*
-#ifdef _AFXDLL
-	Enable3dControls();			// Call this when using MFC in a shared DLL
-#else
-	Enable3dControlsStatic();	// Call this when linking to MFC statically
-#endif
-*/
-    // ***** Make sure that CoInitialize() is invoked at the beginning of the program. *****
-	::CoInitialize(NULL);
+	// プログラムの最初に呼び出されることを確認
+	CoInitialize(NULL);
 
 	CTestClientDlg dlg;
 	m_pMainWnd = &dlg;
 	int nResponse = dlg.DoModal();
-	if (nResponse == IDOK)
+	if (IDOK == nResponse)
 	{
-		// TODO: Place code here to handle when the dialog is
-		//  dismissed with OK
+		// TODO: OK でダイアログが閉じられたときに処理するコードをここに配置
 	}
-	else if (nResponse == IDCANCEL)
+	else if (IDCANCEL == nResponse)
 	{
-		// TODO: Place code here to handle when the dialog is
-		//  dismissed with Cancel
+		// TODO: ダイアログがキャンセルで閉じられたときに処理するコードをここに配置
 	}
 
-	// Since the dialog has been closed, return FALSE so that we exit the
-	//  application, rather than start the application's message pump.
+	// ダイアログが閉じられたので、アプリケーションのメッセージ ポンプを開始するのではなく、アプリケーションを終了するように FALSE を返す
 	return FALSE;
 }
 
 int CTestClientApp::ExitInstance() 
 {
-	// TODO: Add your specialized code here and/or call the base class
+	// TODO: ここに特殊なコードを追加するか、基本クラスを呼び出す
 
-	// ***** Make sure that CoUninitialize() is invoked at the end of the program. *****
+	// プログラムの最後で呼び出されることを確認
 	CoUninitialize();
 	
 	return CWinApp::ExitInstance();

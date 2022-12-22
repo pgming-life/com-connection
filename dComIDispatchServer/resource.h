@@ -1,9 +1,11 @@
+//!!! No wide characters > Error !!!
+
 //{{NO_DEPENDENCIES}}
 // Microsoft Developer Studio generated include file.
-// Used by EventFiringObject.rc
+// Used by ConnectionCOM.rc
 //
 #define IDS_PROJNAME                    100
-#define IDR_EVENTFIRINGOBJECT           101
+#define IDR_SUMUP                       101
 
 // Next default values for new objects
 // 
