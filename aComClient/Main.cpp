@@ -6,7 +6,6 @@ int main()
     cout << "▼▼▼▼▼▼  Test Start ▼▼▼▼▼▼" << endl;
 
     CClient client;
-
     client.OnInit(2, 3);
     if (FAILED(client.OnSendToServer()))
     {

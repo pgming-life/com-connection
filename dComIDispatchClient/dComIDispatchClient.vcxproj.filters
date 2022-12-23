@@ -5,41 +5,35 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ソース ファイル\Interface">
-      <UniqueIdentifier>{657baa48-9692-488b-bef2-47ccc64fd97d}</UniqueIdentifier>
+    <Filter Include="インターフェース">
+      <UniqueIdentifier>{8e7f90e5-1fed-4227-8afd-46e8578a663d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\bin\Win32\Release\ComIDispatchServer.dll">
+      <Filter>インターフェース</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CClient.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="CClient.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="CSink.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="CClient.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="CSink.h">
+    <ClInclude Include="stdafx.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Interface\CServer.h">
-      <Filter>ソース ファイル\Interface</Filter>
+    <ClInclude Include="TEventHandler.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Interface\ComServer.tlb">
-      <Filter>ソース ファイル\Interface</Filter>
-    </None>
   </ItemGroup>
 </Project>

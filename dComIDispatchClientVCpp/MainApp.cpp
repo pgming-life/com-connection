@@ -2,10 +2,6 @@
 #include "MainApp.h"
 #include "CClientDlg.h"
 
-BEGIN_MESSAGE_MAP(MainApp, CWinApp)
-	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
-END_MESSAGE_MAP()
-
 MainApp::MainApp()
 {
 	// TODO: ここに構築コードを追加し、すべての重要な初期化を InitInstance に配置する

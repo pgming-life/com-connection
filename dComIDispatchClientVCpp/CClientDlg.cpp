@@ -1,31 +1,6 @@
 #include "stdafx.h"
 #include "CClientDlg.h"
 
-class CAboutDlg : public CDialog
-{
-public:
-	CAboutDlg();
-	enum { IDD = IDD_ABOUTBOX };
-
-protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
-	DECLARE_MESSAGE_MAP()
-};
-
-CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)
-{
-	
-}
-
-void CAboutDlg::DoDataExchange(CDataExchange* pDX)
-{
-	CDialog::DoDataExchange(pDX);
-}
-
-BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)
-	// No message handlers
-END_MESSAGE_MAP()
-
 CClientDlg::CClientDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CClientDlg::IDD, pParent)
 {
@@ -54,7 +29,7 @@ BOOL CClientDlg::OnInitDialog()
 	// システム メニューに「About...」メニュー項目を追加
 
 	// IDM_ABOUTBOX は、システムコマンドの範囲内にある必要がある
-	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
+	ASSERT(IDM_ABOUTBOX == (IDM_ABOUTBOX & 0xFFF0));
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
 	CMenu* pSysMenu = GetSystemMenu(FALSE);
@@ -83,19 +58,6 @@ BOOL CClientDlg::OnInitDialog()
 	m_pISumUpEventHandler = new ISumUpEventHandler(*this, m_spISumUp, &CClientDlg::OnSumUpInvoke);
 	
 	return TRUE;	// コントロールにフォーカスを設定しない限り TRUE を返す
-}
-
-void CClientDlg::OnSysCommand(UINT nID, LPARAM lParam)
-{
-	if (IDM_ABOUTBOX == (nID & 0xFFF0))
-	{
-		CAboutDlg dlgAbout;
-		dlgAbout.DoModal();
-	}
-	else
-	{
-		CDialog::OnSysCommand(nID, lParam);
-	}
 }
 
 // ダイアログに最小化ボタンを追加する場合、アイコンを描画するために以下のコードが必要になる
@@ -142,22 +104,22 @@ HRESULT CClientDlg::OnSumUpInvoke(
 	EXCEPINFO* pexcepinfo, 
 	UINT* puArgErr)
 {
-	if (dispidMember == 0x01)	// Event1 event.
+	if (0x01 == dispidMember)	// Event1 event.
 	{
 		// 第１パラメータ : [in] int Result
 		VARIANT varResult;
 		int	Result = 0;
 		VariantInit(&varResult);
 		VariantClear(&varResult);
-		varResult = (pdispparams -> rgvarg)[0];
+		varResult = (pdispparams->rgvarg)[0];
 		Result = V_I4(&varResult);
 
 		TCHAR szMessage[256];
-		sprintf_s (szMessage, "Sum up result : %d", Result);
-		::MessageBox (NULL, szMessage, "Event", MB_OK);
+		sprintf_s(szMessage, "Sum up result : %d", Result);
+		::MessageBox(NULL, szMessage, "Event", MB_OK);
 	}
 
-  return S_OK;
+	return S_OK;
 }
 
 void CClientDlg::OnDestroy()
@@ -170,16 +132,16 @@ void CClientDlg::OnDestroy()
 	// また、(削除する代わりに) Release() する必要がある
 	if (m_pISumUpEventHandler)
 	{
-		m_pISumUpEventHandler -> ShutdownConnectionPoint();
-		m_pISumUpEventHandler -> Release();
+		m_pISumUpEventHandler->ShutdownConnectionPoint();
+		m_pISumUpEventHandler->Release();
 		m_pISumUpEventHandler = NULL;
 	}
 }
 
-void CClientDlg::OnButtonCallFunction() 
+void CClientDlg::OnButtonCallFunction()
 {
 	// TODO: コントロール通知ハンドラ コードをここに追加
-	// ISumUp.ExecutionOver() を呼び出す
+	// ISumUp.SumUp() を呼び出す
 	// これにより、ISumUp を実装するオブジェクトが Event1 を起動する
 	m_spISumUp->SumUp(2, 3);
 }
