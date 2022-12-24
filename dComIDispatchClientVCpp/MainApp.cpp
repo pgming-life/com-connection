@@ -15,7 +15,10 @@ BOOL MainApp::InitInstance()
 	AfxEnableControlContainer();
 
 	// プログラムの最初に呼び出されることを確認
-	CoInitialize(NULL);
+	if (FAILED(CoInitialize(NULL)))
+	{
+		exit(0);
+	}
 
 	CClientDlg dlg;
 	m_pMainWnd = &dlg;

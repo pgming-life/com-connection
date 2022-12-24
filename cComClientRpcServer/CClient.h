@@ -7,7 +7,7 @@ public:
 	CClient();
 	~CClient();
 
-	virtual HRESULT OnInit();
+	HRESULT OnInit();
 	HRESULT OnSendToServer(UINT num1, UINT num2);
 
 // Implementation

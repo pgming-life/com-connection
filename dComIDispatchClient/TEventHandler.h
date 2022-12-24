@@ -1,7 +1,5 @@
 #pragma once
 
-#include <windows.h>
-
 namespace TEventHandlerNamespace
 {
 	// 一般的なイベントハンドラーテンプレートクラス (ATL 以外のクライアントに特に役立つが、これに限定されない)
@@ -11,18 +9,18 @@ namespace TEventHandlerNamespace
 		typename device_event_interface>
 	class TEventHandler : IDispatch
 	{
-	friend class class_event_handler;
-	
-	typedef HRESULT (event_handler_class::*parent_on_invoke)(
-		TEventHandler<event_handler_class, device_interface, device_event_interface>* pthis,
-		DISPID dispidMember, 
-		REFIID riid,
-		LCID lcid,
-		WORD wFlags,
-		DISPPARAMS* pdispparams,
-		VARIANT* pvarResult,
-		EXCEPINFO* pexcepinfo,
-		UINT* puArgErr);
+		friend class class_event_handler;
+		
+		typedef HRESULT (event_handler_class::*parent_on_invoke)(
+			TEventHandler<event_handler_class, device_interface, device_event_interface>* pthis,
+			DISPID dispidMember, 
+			REFIID riid,
+			LCID lcid,
+			WORD wFlags,
+			DISPPARAMS* pdispparams,
+			VARIANT* pvarResult,
+			EXCEPINFO* pexcepinfo,
+			UINT* puArgErr);
 
 	public:
 		TEventHandler(
@@ -36,7 +34,7 @@ namespace TEventHandlerNamespace
 			m_dwEventCookie(0)
 		{
 			SetupConnectionPoint(pdevice_interface);
-		}   
+		}
 		
 		~TEventHandler()
 		{
@@ -50,7 +48,7 @@ namespace TEventHandlerNamespace
 			{
 				m_pIConnectionPoint->Unadvise(m_dwEventCookie);
 				m_dwEventCookie = 0;
-				m_pIConnectionPoint->Release();
+				SAFE_RELEASE(m_pIConnectionPoint);
 				m_pIConnectionPoint = NULL;
 			}
 		}
@@ -158,13 +156,23 @@ namespace TEventHandlerNamespace
 	
 			if (pIUnknown)
 			{
-				// 接続ポイントの pdevice_interface を QI します。
-				pdevice_interface->QueryInterface (IID_IConnectionPointContainer, (void**)&pIConnectionPointContainerTemp);
+				try
+				{
+					// 接続ポイントの pdevice_interface を QI します。
+					pdevice_interface->QueryInterface(IID_IConnectionPointContainer, (void**)&pIConnectionPointContainerTemp);
+				}
+				catch (...)
+				{
+					cout << "ターゲットCOMサーバーが存在しません。" << endl;
+					cout << "終了します..." << endl;
+					Sleep(2000);
+					exit(0);
+				}
 				
 				if (pIConnectionPointContainerTemp)
 				{
 					pIConnectionPointContainerTemp->FindConnectionPoint(__uuidof(device_event_interface), &m_pIConnectionPoint);
-					pIConnectionPointContainerTemp->Release();
+					SAFE_RELEASE(pIConnectionPointContainerTemp);
 					pIConnectionPointContainerTemp = NULL;
 				}
 				
@@ -173,7 +181,7 @@ namespace TEventHandlerNamespace
 					m_pIConnectionPoint->Advise(pIUnknown, &m_dwEventCookie);
 				}
 				
-				pIUnknown->Release();
+				SAFE_RELEASE(pIUnknown);
 				pIUnknown = NULL;
 			}
 		}

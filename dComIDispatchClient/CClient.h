@@ -11,7 +11,7 @@ public:
 	CClient();
 	~CClient();
 
-	HRESULT OnInit(UINT num1, UINT num2);
+	VOID OnInit(UINT num1, UINT num2);
 	VOID OnDestroy();
 	VOID OnSendToServer();
 

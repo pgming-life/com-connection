@@ -159,7 +159,7 @@ namespace TEventHandlerNamespace
 			if (pIUnknown)
 			{
 				// 接続ポイントの pdevice_interface を QI します。
-				pdevice_interface->QueryInterface (IID_IConnectionPointContainer, (void**)&pIConnectionPointContainerTemp);
+				pdevice_interface->QueryInterface(IID_IConnectionPointContainer, (void**)&pIConnectionPointContainerTemp);
 				
 				if (pIConnectionPointContainerTemp)
 				{

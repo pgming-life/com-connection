@@ -9,10 +9,12 @@ public:
 	HRESULT OnInit(UINT num1, UINT num2);
 	HRESULT OnSendToServer();
 
-private:
+	// Implementation
+protected:
 	DWORD dwAdvise;
 	IConnectionPoint* pCP;
 
+private:
 	// サーバーへ渡すデータ
 	int m_num1;
 	int m_num2;

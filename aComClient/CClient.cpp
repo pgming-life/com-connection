@@ -13,6 +13,7 @@ CClient::CClient() :
 
 CClient::~CClient()
 {
+	// COM‰ð•ú
 	CoUninitialize();
 }
 

@@ -27,7 +27,12 @@ void Output(
     string* pStr2 = new string(pContext->szStr2);
 
     CClient client;
-    client.OnInit();
+    if (FAILED(client.OnInit()))
+    {
+        cout << "COM‰Šú‰»‚ÉŽ¸”s‚µ‚Ü‚µ‚½B" << endl;
+        Sleep(2000);
+        exit(0);
+    }
     cout << ">>> " << *pStr1 << endl;
     cout << ">>> " << pContext->args1[0] << " + " << pContext->args1[1] << endl;
     if (FAILED(client.OnSendToServer(pContext->args1[0], pContext->args1[1])))
