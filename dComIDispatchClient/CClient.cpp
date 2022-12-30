@@ -68,7 +68,7 @@ VOID CClient::OnDestroy()
 
 VOID CClient::OnSendToServer()
 {
-	// スケルトンコード
+	// スケルトンコード呼出し
 	// COMサーバーにパラメータを送信
 	cout << "Sending..." << endl;
 	m_spISumUp->SumUp(m_num1, m_num2);
