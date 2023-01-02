@@ -8,21 +8,30 @@ int main()
 
     // ‰Šú‰»
     cout << "RPC start." << endl;
-    rpc->OnInit();
+    rpc->OnInitServer();
+    rpc->OnInitClient();
 
-    cout << "Can I send \"2 and 3\"? [Enter]";
+    cout << "Can I send it 5 times? [Enter]";
     cin.get();
 
-    // ‘—M
-    INPUT_DATA_SND data;
-    data.args1 = 2;
-    data.args2 = 3;
-    rpc->OnSend(&data);
+    // 5‰ñ‘—M
+    for (UINT i = 1; i <= 5; i++)
+    {
+        cout << "-------------------------" << endl;
+        cout << ">>> input : " << i << endl;
+        cout << ">>> output : " << i << " + " << i << endl;
+        cout << "Sending..." << endl;
+        INPUT_DATA_SND data;
+        data.args1 = i;
+        data.args2 = i;
+        rpc->OnSend(&data);
+    }
 
     // ‰ğ•ú
     cout << "RPC release? [Enter]";
     cin.get();
-    rpc->OnDestroy();
+    rpc->OnDestroyClient();
+    rpc->OnDestroyServer();
 
     cout << "Process release..." << endl;
     Sleep(1000);

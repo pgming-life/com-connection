@@ -12,8 +12,8 @@ CONTEXT_HANDLE_SND OpenSnd(
 {
     CONTEXT_HANDLE_SND hContext = pData;
     clog << "-------------------------" << endl;
-    clog << "Open : Binding(" << hBinding << ")" << endl;
-    clog << "Open : Context(" << hContext << ")" << endl;
+    clog << "OpenSnd : Binding(" << hBinding << ")" << endl;
+    clog << "OpenSnd : Context(" << hContext << ")" << endl;
     return hContext;
 }
 
@@ -21,7 +21,7 @@ CONTEXT_HANDLE_SND OpenSnd(
 void SendSnd(
     /* [in] */ CONTEXT_HANDLE_SND hContext)
 {
-    clog << "Output : Context(" << hContext << ")" << endl;
+    clog << "SendSnd : Context(" << hContext << ")" << endl;
     INPUT_DATA_SND* pContext = static_cast<INPUT_DATA_SND*>(hContext);
     
     // COM初期化
@@ -49,7 +49,7 @@ void SendSnd(
 void CloseSnd(
     /* [out][in] */ CONTEXT_HANDLE_SND* phContext)
 {
-    clog << "Close : Context(" << *phContext << ")" << endl;
+    clog << "CloseSnd : Context(" << *phContext << ")" << endl;
 
     // コンテキストハンドルをNULLに設定
     *phContext = NULL;

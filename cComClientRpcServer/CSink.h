@@ -9,7 +9,7 @@ public:
 
     STDMETHODIMP ExecutionOver(int ret)
     {
-        cout << "Sum up result: " << ret << endl;
+        cout << "Sum up result : " << ret << endl;
 	    return S_OK;
     };
 

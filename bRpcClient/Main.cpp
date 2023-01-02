@@ -14,6 +14,7 @@ int main()
     cin.get();
 
     // ‘—M
+    cout << "Sending..." << endl;
     rpc->OnSend();
 
     // ‰ğ•ú

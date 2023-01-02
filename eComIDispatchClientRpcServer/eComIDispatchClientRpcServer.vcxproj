@@ -208,17 +208,21 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\eRpcIdl\RpcIdlRcv_c.c" />
     <ClCompile Include="..\eRpcIdl\RpcIdlSnd_s.c" />
     <ClCompile Include="CClient.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RpcManager.cpp" />
     <ClCompile Include="RpcUser.cpp" />
+    <ClCompile Include="Singleton.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\eRpcIdl\RpcIdlRcv.h" />
     <ClInclude Include="..\eRpcIdl\RpcIdlSnd.h" />
     <ClInclude Include="CClient.h" />
     <ClInclude Include="RpcManager.h" />
     <ClInclude Include="RpcUser.h" />
+    <ClInclude Include="Singleton.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TEventHandler.h" />
   </ItemGroup>

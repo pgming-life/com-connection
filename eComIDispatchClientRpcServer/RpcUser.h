@@ -2,6 +2,7 @@
 
 #include "stdafx.h"
 #include "../eRpcIdl/RpcIdlSnd.h"
+#include "../eRpcIdl/RpcIdlRcv.h"
 
 // RPCコールバックイベント
 CONTEXT_HANDLE_SND OpenSnd(

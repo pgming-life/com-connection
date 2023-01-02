@@ -27,6 +27,12 @@
     <ClCompile Include="..\eRpcIdl\RpcIdlSnd_s.c">
       <Filter>インターフェース</Filter>
     </ClCompile>
+    <ClCompile Include="..\eRpcIdl\RpcIdlRcv_c.c">
+      <Filter>インターフェース</Filter>
+    </ClCompile>
+    <ClCompile Include="Singleton.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -45,6 +51,12 @@
       <Filter>インターフェース</Filter>
     </ClInclude>
     <ClInclude Include="TEventHandler.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\eRpcIdl\RpcIdlRcv.h">
+      <Filter>インターフェース</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>

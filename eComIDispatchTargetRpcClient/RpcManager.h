@@ -9,11 +9,14 @@ public:
     RpcManager();
     ~RpcManager();
 
-    HRESULT OnInit();
+    HRESULT OnInitServer();
+    HRESULT OnInitClient();
+    HRESULT OnDestroyServer();
+    HRESULT OnDestroyClient();
     HRESULT OnSend(INPUT_DATA_SND* pData);
-    HRESULT OnDestroy();
 
 private:
     RPC_STATUS m_status;
+    HANDLE hThread;
     handle_t m_hBinding;
 };

@@ -1,21 +1,24 @@
 #include "stdafx.h"
+#include "Singleton.h"
 #include "RpcManager.h"
+
+static RpcManager& g_rpc = Singleton<RpcManager>::GetInstance();
 
 int main()
 {
-    unique_ptr<RpcManager> rpc;
-    
     // èâä˙âª
-    rpc.reset(new RpcManager());
     cout << "RPC start." << endl;
-    rpc->OnInit();
+    g_rpc.OnInitServer();
+    g_rpc.OnInitClient();
 
     // RCVèIóπ
     cout << "Receiving... [Enter] is stop." << endl;
     cin.get();
 
     // âï˙
-    rpc->OnDestroy();
+    g_rpc.OnDestroyClient();
+    g_rpc.OnDestroyServer();
+    SingletonFinalizer::Finalize();
 
     cout << "Process release..." << endl;
     Sleep(1000);

@@ -21,6 +21,9 @@
     <ClCompile Include="..\eRpcIdl\RpcIdlSnd_c.c">
       <Filter>インターフェース</Filter>
     </ClCompile>
+    <ClCompile Include="..\eRpcIdl\RpcIdlRcv_s.c">
+      <Filter>インターフェース</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -33,6 +36,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="..\eRpcIdl\RpcIdlSnd.h">
+      <Filter>インターフェース</Filter>
+    </ClInclude>
+    <ClInclude Include="..\eRpcIdl\RpcIdlRcv.h">
       <Filter>インターフェース</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,9 @@
 #include "stdafx.h"
 #include "CClient.h"
+#include "Singleton.h"
+#include "RpcManager.h"
+
+static RpcManager& g_rpc = Singleton<RpcManager>::GetInstance();
 
 CClient::CClient()
 {
@@ -46,9 +50,10 @@ HRESULT CClient::OnSumUpInvoke(
 		varResult = (pdispparams->rgvarg)[0];
 		Result = V_I4(&varResult);
 
-		TCHAR szMessage[256];
-		sprintf_s(szMessage, "Sum up result : %d", Result);
-		cout << szMessage << endl;
+		//TCHAR szMessage[256];
+		//sprintf_s(szMessage, "Sum up result : %d", Result);
+		//cout << szMessage << endl;
+		g_rpc.OnSend(Result);
 	}
 
 	return S_OK;

@@ -14,6 +14,7 @@ int main()
     cin.get();
 
     // ‘—M
+    cout << "Sending..." << endl;
     INPUT_DATA data;
     data.szStr1 = "Sum Args1«";
     data.args1[0] = 2;
