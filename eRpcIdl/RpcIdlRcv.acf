@@ -1,0 +1,7 @@
+[
+   // このインターフェースで明示的なバインディングハンドルを使用
+   explicit_handle
+]
+interface RpcIdlRcv
+{
+}

@@ -1,0 +1,33 @@
+[
+    // インターフェースを他のインターフェースと区別する一意の識別子
+    uuid(8e2bdce4-ef76-cced-4f67-eb7237d2b122),
+
+    // インターフェースのバージョン
+    version(1.0)
+]
+interface RpcIdlRcv
+{
+    // コンテキストハンドルを完全に使用するには、typedefを実行する必要がある
+    typedef [context_handle] void* CONTEXT_HANDLE_RCV;
+
+    // コンテキストオープン
+    CONTEXT_HANDLE_RCV OpenRcv(
+        // 明示的なサーバーバインディングハンドル
+        [in] handle_t hBinding,
+        // 送信データ
+        [in] int result);
+
+    // データ送信
+    void SendRcv(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in] CONTEXT_HANDLE_RCV hContext);
+
+    // コンテキストクローズ
+    void CloseRcv(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in, out] CONTEXT_HANDLE_RCV* phContext);
+}

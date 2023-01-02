@@ -1,0 +1,39 @@
+[
+    // インターフェースを他のインターフェースと区別する一意の識別子
+    uuid(dbb3cdd4-0023-c973-edbd-943d99d61898),
+
+    // インターフェースのバージョン
+    version(1.0)
+]
+interface RpcIdlSnd
+{
+    // コンテキストハンドルを完全に使用するには、typedefを実行する必要がある
+    typedef [context_handle] void* CONTEXT_HANDLE_SND;
+
+    typedef struct INPUT_DATA_SND
+    {
+        int args1;
+        int args2;
+    } INPUT_DATA_SND;
+
+    // コンテキストオープン
+    CONTEXT_HANDLE_SND OpenSnd(
+        // 明示的なサーバーバインディングハンドル
+        [in] handle_t hBinding,
+        // 送信データ
+        [in, ptr] INPUT_DATA_SND* pData);
+
+    // データ送信
+    void SendSnd(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in] CONTEXT_HANDLE_SND hContext);
+
+    // コンテキストクローズ
+    void CloseSnd(
+        // コンテキストハンドル
+        // 暗黙的なバインディングハンドル
+        // 明示的なコンテキストハンドルを介して使用される
+        [in, out] CONTEXT_HANDLE_SND* phContext);
+}

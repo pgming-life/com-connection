@@ -6,11 +6,11 @@
 //
 
 // RPCオープン
-CONTEXT_HANDLE Open(
+CONTEXT_HANDLE_SND OpenSnd(
     /* [in] */ handle_t hBinding,
-    /* [ptr][in] */ INPUT_DATA* pData)
+    /* [ptr][in] */ INPUT_DATA_SND* pData)
 {
-    CONTEXT_HANDLE hContext = pData;
+    CONTEXT_HANDLE_SND hContext = pData;
     clog << "-------------------------" << endl;
     clog << "Open : Binding(" << hBinding << ")" << endl;
     clog << "Open : Context(" << hContext << ")" << endl;
@@ -18,45 +18,36 @@ CONTEXT_HANDLE Open(
 }
 
 // 送信元からイベントをキャッチ
-void Output(
-    /* [in] */ CONTEXT_HANDLE hContext)
+void SendSnd(
+    /* [in] */ CONTEXT_HANDLE_SND hContext)
 {
     clog << "Output : Context(" << hContext << ")" << endl;
-    INPUT_DATA* pContext = static_cast<INPUT_DATA*>(hContext);
-    string* pStr1 = new string(pContext->szStr1);
-    string* pStr2 = new string(pContext->szStr2);
-
-    CClient client;
-    if (FAILED(client.OnInit()))
+    INPUT_DATA_SND* pContext = static_cast<INPUT_DATA_SND*>(hContext);
+    
+    // COM初期化
+    if (FAILED(CoInitialize(NULL)))
     {
         cout << "COM初期化に失敗しました。" << endl;
-    	cout << "終了します..." << endl;
+        cout << "終了します..." << endl;
         Sleep(2000);
         exit(0);
     }
-    cout << ">>> " << *pStr1 << endl;
-    cout << ">>> " << pContext->args1[0] << " + " << pContext->args1[1] << endl;
-    if (FAILED(client.OnSendToServer(pContext->args1[0], pContext->args1[1])))
+
+    // COMクライアント処理
     {
-        cout << "ターゲットCOMサーバーが存在しません。" << endl;
-    	cout << "終了します..." << endl;
-        Sleep(2000);
-    	exit(0);
+        CClient client;
+        client.OnInit(pContext->args1, pContext->args2);
+        client.OnSend();
+        client.OnDestroy();
     }
-    cout << ">>> " << *pStr2 << endl;
-    cout << ">>> " << pContext->args2[0] << " + " << pContext->args2[1] << endl;
-    if (FAILED(client.OnSendToServer(pContext->args2[0], pContext->args2[1])))
-    {
-        cout << "ターゲットCOMサーバーが存在しません。" << endl;
-    	cout << "終了します..." << endl;
-        Sleep(2000);
-    	exit(0);
-    }
+
+    // COM解放
+    CoUninitialize();
 }
 
 // RPCクローズ
-void Close(
-    /* [out][in] */ CONTEXT_HANDLE* phContext)
+void CloseSnd(
+    /* [out][in] */ CONTEXT_HANDLE_SND* phContext)
 {
     clog << "Close : Context(" << *phContext << ")" << endl;
 
@@ -126,8 +117,8 @@ DWORD WINAPI RpcServerListenThreadProc(LPVOID /*pParam*/)
 }
 
 // クライアントへの接続が失われた場合、RPCランタイムはこの関数をコール
-void __RPC_USER CONTEXT_HANDLE_rundown(CONTEXT_HANDLE hContext)
+void __RPC_USER CONTEXT_HANDLE_SND_rundown(CONTEXT_HANDLE_SND hContext)
 {
-    clog << "CONTEXT_HANDLE_rundown : Context(" << hContext << ")" << endl;
-    Close(&hContext);
+    clog << "CONTEXT_HANDLE_SND_rundown : Context(" << hContext << ")" << endl;
+    CloseSnd(&hContext);
 }
