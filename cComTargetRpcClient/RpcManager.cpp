@@ -26,7 +26,7 @@ HRESULT RpcManager::OnInit()
         &szStringBinding);          // 文字列バインディングの出力
     if (m_status)
     {
-        m_status = HandleError("Rpc string binding compose", m_status);
+        m_status = HandleError("RpcStringBindingCompose", m_status);
         return E_FAIL;
     }
 
@@ -37,7 +37,7 @@ HRESULT RpcManager::OnInit()
         &m_hBinding);       // 結果を明示的なバインディングハンドルに入れる
     if (m_status)
     {
-        m_status = HandleError("Rpc binding from string binding", m_status);
+        m_status = HandleError("RpcBindingFromStringBinding", m_status);
         return E_FAIL;
     }
 
@@ -46,7 +46,7 @@ HRESULT RpcManager::OnInit()
         &szStringBinding);    // 解放する文字列
     if (m_status)
     {
-        m_status = HandleError("Rpc string free", m_status);
+        m_status = HandleError("RpcStringFree", m_status);
         return E_FAIL;
     }
 
@@ -54,7 +54,7 @@ HRESULT RpcManager::OnInit()
     m_status = RpcEpResolveBinding(m_hBinding, RpcIdl_v1_0_c_ifspec);
     if (m_status)
     {
-        m_status = HandleError("Rpc EP resolve binding", m_status);
+        m_status = HandleError("RpcEpResolveBinding", m_status);
         return E_FAIL;
     }
 
@@ -92,7 +92,7 @@ HRESULT RpcManager::OnDestroy()
         &m_hBinding);   // 明示的なバインディングハンドルを解放
     if (m_status)
     {
-        m_status = HandleError("Rpc binding free", m_status);
+        m_status = HandleError("RpcBindingFree", m_status);
         return E_FAIL;
     }
 
